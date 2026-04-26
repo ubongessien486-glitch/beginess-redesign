@@ -790,16 +790,7 @@ img { max-width: 100%; display: block; }
 }
 
 .cybercore-main-column {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 1px;
-    height: 100%;
-    background: var(--cyber-light);
-    box-shadow: 0 0 40px 10px var(--cyber-glow-1), 0 0 100px 20px rgba(0,229,255,0.2);
-    animation: mainGlow 3s alternate infinite;
-    opacity: 0.5;
+    display: none;
 }
 
 .light-stream-container {
@@ -813,7 +804,7 @@ img { max-width: 100%; display: block; }
 .light-beam {
     position: absolute;
     bottom: -10%;
-    background: var(--cyber-light);
+    height: 150vh;
     animation-name: rise, fade;
     animation-fill-mode: forwards;
     animation-timing-function: linear;
@@ -821,19 +812,19 @@ img { max-width: 100%; display: block; }
 }
 
 .light-beam.primary {
-    background: var(--cyber-light);
+    background: linear-gradient(to top, transparent, var(--cyber-light) 50%, transparent);
     box-shadow: 0 0 8px var(--cyber-glow-1), 0 0 15px var(--cyber-glow-2);
 }
 
 .light-beam.secondary {
-    background: var(--cyber-highlight);
+    background: linear-gradient(to top, transparent, var(--cyber-highlight) 50%, transparent);
     box-shadow: 0 0 12px var(--cyber-highlight-glow);
 }
 
 @keyframes rise {
-  0% { transform: translateY(10%); opacity: 0; }
+  0% { transform: translateY(100%); opacity: 0; }
   10% { opacity: 1; }
-  100% { transform: translateY(-110vh); opacity: 0; }
+  100% { transform: translateY(-150vh); opacity: 0; }
 }
 
 @keyframes fade {
@@ -869,24 +860,26 @@ img { max-width: 100%; display: block; }
 .geo-badge span { font-size: 0.875rem; color: rgba(255, 255, 255, 0.8); letter-spacing: 0.05em; }
 
 .geo-title {
-    font-size: clamp(2rem, 7vw, 5.5rem);
+    font-size: clamp(2.5rem, 8vw, 6rem);
     font-weight: 700; line-height: 1.1;
     margin-bottom: 24px; letter-spacing: -0.02em;
+    color: #ffffff;
+    text-shadow: 0 0 20px rgba(0, 229, 255, 0.8), 0 0 40px rgba(0, 229, 255, 0.4);
+    position: relative;
+    z-index: 10;
 }
-.geo-title-1 {
-    background: linear-gradient(to bottom, #fff, rgba(255,255,255,0.8));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-}
-.geo-title-2 {
-    background: linear-gradient(to right, var(--cyber-light), #fff, var(--cyber-highlight));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+.geo-title-1, .geo-title-2 {
+    color: #ffffff;
+    background: none;
+    -webkit-text-fill-color: #ffffff;
 }
 .geo-subtitle {
     font-size: clamp(0.95rem, 3vw, 1.25rem);
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.8);
     margin-bottom: 36px; line-height: 1.625;
-    font-weight: 300; letter-spacing: 0.025em;
+    font-weight: 400; letter-spacing: 0.025em;
     max-width: 36rem; margin-inline: auto;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
 }
 
 .hero-geo-fade {
