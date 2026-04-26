@@ -94,7 +94,26 @@ img { max-width: 100%; display: block; }
     max-width: 1280px; margin: 0 auto; padding: 0 24px;
     height: 100%; display: flex; align-items: center; gap: 32px;
 }
-.nav-logo h2 { font-size: 1.6rem; font-weight: 800; letter-spacing: 2px; color: #fff; }
+/* Logo: image + wordmark */
+.nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+}
+.nav-logo-img {
+    height: 42px; width: 42px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.5));
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.nav-logo:hover .nav-logo-img {
+    transform: rotate(20deg) scale(1.08);
+}
+.nav-logo-text {
+    font-size: 1.5rem; font-weight: 800;
+    letter-spacing: 2.5px; color: #fff;
+    background: linear-gradient(135deg, #d4af37, #f5e07c, #c9920a);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
 
 .nav-list { display: flex; align-items: center; gap: 4px; flex: 1; margin-left: 20px; }
 .nav-link {
