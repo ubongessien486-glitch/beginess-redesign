@@ -51,8 +51,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ── Mobile Menu Toggle (full-screen overlay) ──────────────────────────────
     const mobileToggle = document.getElementById('mobileToggle');
-    const navList = document.getElementById('navList');
-    const navActions = document.getElementById('navActions');
+    const navList      = document.getElementById('navList');
+    const navActions   = document.getElementById('navActions');
+
+    const closeMenu = () => {
+        navList?.classList.remove('open');
+        navActions?.classList.remove('open');
+        if (mobileToggle) mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        document.body.style.overflow = '';
+        // collapse services accordion too
+        document.querySelectorAll('.has-mega').forEach(el => el.classList.remove('mob-open'));
+    };
 
     if (mobileToggle && navList) {
         mobileToggle.addEventListener('click', () => {
@@ -62,15 +71,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 ? '<i class="fas fa-times"></i>'
                 : '<i class="fas fa-bars"></i>';
             document.body.style.overflow = isOpen ? 'hidden' : '';
+            if (!isOpen) closeMenu();
         });
 
-        // Close on nav link click
-        document.querySelectorAll('.nav-link, .btn-primary').forEach(link => {
+        // ── Services accordion toggle on mobile ──
+        document.querySelectorAll('.has-mega').forEach(megaParent => {
+            const trigger = megaParent.querySelector(':scope > .nav-link');
+            if (!trigger) return;
+            trigger.addEventListener('click', (e) => {
+                // Only intercept on mobile widths
+                if (window.innerWidth > 768) return;
+                e.preventDefault();
+                e.stopPropagation();
+                megaParent.classList.toggle('mob-open');
+            });
+        });
+
+        // Close on any non-Services nav link click
+        document.querySelectorAll('.nav-link:not(.has-mega > .nav-link), .mega-item, .btn-primary').forEach(link => {
             link.addEventListener('click', () => {
-                navList.classList.remove('open');
-                if (navActions) navActions.classList.remove('open');
-                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                document.body.style.overflow = '';
+                if (window.innerWidth > 768) return;
+                closeMenu();
             });
         });
     }

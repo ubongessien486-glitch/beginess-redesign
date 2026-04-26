@@ -512,15 +512,15 @@ img { max-width: 100%; display: block; }
     padding: 6px 16px; border-radius: 9999px;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    margin-bottom: 48px;
+    margin-bottom: 32px;
 }
 .badge-dot { font-size: 8px; color: rgba(244, 63, 94, 0.8); }
 .geo-badge span { font-size: 0.875rem; color: rgba(255, 255, 255, 0.6); letter-spacing: 0.05em; }
 
 .geo-title {
-    font-size: clamp(2.5rem, 6vw, 5.5rem);
+    font-size: clamp(2rem, 7vw, 5.5rem);
     font-weight: 700; line-height: 1.1;
-    margin-bottom: 32px; letter-spacing: -0.02em;
+    margin-bottom: 24px; letter-spacing: -0.02em;
 }
 .geo-title-1 {
     background: linear-gradient(to bottom, #fff, rgba(255,255,255,0.8));
@@ -531,9 +531,9 @@ img { max-width: 100%; display: block; }
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 .geo-subtitle {
-    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-size: clamp(0.95rem, 3vw, 1.25rem);
     color: rgba(255, 255, 255, 0.4);
-    margin-bottom: 48px; line-height: 1.625;
+    margin-bottom: 36px; line-height: 1.625;
     font-weight: 300; letter-spacing: 0.025em;
     max-width: 36rem; margin-inline: auto;
 }
@@ -544,11 +544,12 @@ img { max-width: 100%; display: block; }
 }
 
 @media (max-width: 768px) {
-    .shape-1 { left: -10%; top: 15%; }
-    .shape-2 { right: -5%; top: 70%; }
-    .shape-3 { left: 5%; bottom: 5%; }
-    .shape-4 { right: 15%; top: 10%; }
-    .shape-5 { left: 20%; top: 5%; }
+    /* Scale down shapes significantly so they don't overflow the viewport */
+    .shape-1 { left: -20%; top: 12%; }
+    .shape-1 .shape-inner { width: 280px; height: 70px; }
+    .shape-2 { right: -15%; top: 72%; }
+    .shape-2 .shape-inner { width: 240px; height: 60px; }
+    .shape-3, .shape-4, .shape-5 { display: none; }
 }
 
 /* =========================================================
@@ -659,4 +660,131 @@ img { max-width: 100%; display: block; }
     position: relative;
     z-index: 50;
     transform: translateY(-80px);
+}
+
+/* =========================================================
+   MOBILE LAMP + HERO OVERRIDES
+   ========================================================= */
+@media (max-width: 768px) {
+    /* Shrink the lamp beams so they don't dominate the tiny viewport */
+    .lamp-beam {
+        width: 14rem;
+        height: 8rem;
+    }
+    @keyframes lampEnter {
+        from { opacity: 0.5; width: 8rem; }
+        to   { opacity: 1;   width: 14rem; }
+    }
+    .lamp-blur-cyan {
+        width: 14rem;
+        height: 5rem;
+        opacity: 0.35;
+        filter: blur(32px);
+    }
+    .lamp-line {
+        width: 14rem;
+        transform: translateY(-4rem);
+    }
+    @keyframes lineEnter {
+        from { opacity: 0; width: 8rem; }
+        to   { opacity: 1; width: 14rem; }
+    }
+    .lamp-beams {
+        transform: translateY(-15%);
+    }
+    /* Pull hero content up less aggressively */
+    .max-w-3xl {
+        transform: translateY(-40px);
+        padding-top: 80px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .hero-geometric {
+        min-height: 95vh;
+    }
+    .geo-badge {
+        margin-bottom: 20px;
+        font-size: 0.78rem;
+    }
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+    .hero-actions .btn-primary,
+    .hero-actions .btn-secondary {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+    }
+
+    /* Stats band: single column on very small, 2-col on mobile */
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+    }
+    .stat-item {
+        padding: 20px 16px;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .stat-item:nth-child(odd)  { border-right: 1px solid var(--border-color); }
+    .stat-item:nth-child(3),
+    .stat-item:nth-child(4)   { border-bottom: none; }
+    .stat-number { font-size: 2.2rem; }
+
+    /* Services section */
+    .solutions-section { padding: 64px 0; }
+    .section-header { margin-bottom: 36px; }
+    .solutions-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .solution-card { padding: 28px 22px; }
+
+    /* Featured product */
+    .featured-product { padding: 28px 20px; }
+    .featured-inner { grid-template-columns: 1fr; gap: 24px; }
+    .featured-image { display: none; }
+
+    /* Why section */
+    .why-section { padding: 64px 0; }
+    .why-layout { grid-template-columns: 1fr; gap: 40px; }
+    .why-image { display: none; }
+    .why-text h2 { font-size: 1.9rem; }
+
+    /* CTA */
+    .cta-banner { padding: 64px 0; }
+    .cta-inner h2 { font-size: 1.9rem; }
+    .cta-actions { flex-direction: column; align-items: center; gap: 12px; }
+    .cta-actions .btn-primary,
+    .cta-actions .btn-outline-light { width: 100%; max-width: 320px; justify-content: center; }
+
+    /* Footer */
+    .enterprise-footer { padding: 48px 0 28px; }
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+    }
+    .brand-col { grid-column: 1 / -1; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    .legal-links { justify-content: center; }
+
+    /* Service inner pages */
+    .service-hero { padding: 72px 0 56px; }
+    .service-hero-inner { grid-template-columns: 1fr; }
+    .service-hero-visual { display: none; }
+    .service-hero-text h1 { font-size: 2.2rem; }
+    .two-col { grid-template-columns: 1fr; gap: 32px; }
+    .cta-section-mini { padding: 48px 0; }
+}
+
+@media (max-width: 480px) {
+    .solutions-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .stat-number { font-size: 1.9rem; }
+    .geo-title { font-size: clamp(1.8rem, 9vw, 2.6rem); }
+    .geo-subtitle { font-size: 0.95rem; }
+    .nav-logo-text { font-size: 1.2rem; letter-spacing: 1.5px; }
 }
