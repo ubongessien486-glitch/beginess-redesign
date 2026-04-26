@@ -1,18 +1,120 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medical Device Risk Scoring</title>
+    <title>Medical Device Risk Scoring | Beginess</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/medical-platform.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body>
-    <h1>Medical Device Risk Scoring</h1>
-    <div id="calculator-container"></div>
-    <script src="js/utils.js"></script>
-    <script src="js/chart-config.js"></script>
+<body class="medical-body">`n<div id="scrollProgress"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" style="text-decoration: none;">
+                <h2 style="color: var(--white); margin: 0; font-weight: 800; letter-spacing: 1px;">BEGINESS</h2>
+            </a>
+            <ul class="nav-list">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="medical-device-risk-scoring.html" class="nav-link active">Risk Scoring</a></li>
+                <li><a href="#" class="btn-primary">Dashboard</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="scoring-wrapper">
+        <div class="scoring-header">
+            <h1>Medical Device Risk Scoring</h1>
+            <p>Evaluate device vulnerabilities and patient impact with our advanced prediction model.</p>
+        </div>
+
+        <div class="scoring-container">
+            <!-- Left Side: Inputs -->
+            <div class="scoring-inputs panel-glass">
+                <h3>Device Configuration</h3>
+                
+                <div class="input-group">
+                    <label>Device Classification</label>
+                    <div class="radio-group" id="class-group">
+                        <label class="radio-btn"><input type="radio" name="deviceClass" value="1"> Class I (Low)</label>
+                        <label class="radio-btn"><input type="radio" name="deviceClass" value="2" checked> Class II (Moderate)</label>
+                        <label class="radio-btn"><input type="radio" name="deviceClass" value="3"> Class III (High)</label>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Network Connectivity</label>
+                    <select id="connectivity">
+                        <option value="1">Isolated (No Network)</option>
+                        <option value="2">Internal Network Only</option>
+                        <option value="3" selected>Cloud Connected</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Vulnerability Severity (CVSS Base)</label>
+                    <input type="range" id="cvss" min="0" max="10" step="0.1" value="7.5">
+                    <div class="range-value"><span id="cvss-val">7.5</span> / 10</div>
+                </div>
+
+                <div class="input-group">
+                    <label>Patient Safety Impact</label>
+                    <select id="patientImpact">
+                        <option value="1">Minimal / No Impact</option>
+                        <option value="2">Moderate Injury</option>
+                        <option value="3" selected>Severe Injury</option>
+                        <option value="4">Fatal</option>
+                    </select>
+                </div>
+                
+                <button id="calculateBtn" class="btn-primary" style="width: 100%; margin-top: 1rem;">Analyze Risk Profile</button>
+            </div>
+
+            <!-- Right Side: Results -->
+            <div class="scoring-results panel-glass">
+                <div class="score-header">
+                    <h3>Overall Risk Score</h3>
+                    <div class="score-badge" id="riskBadge">High Risk</div>
+                </div>
+                
+                <div class="score-circle">
+                    <svg viewBox="0 0 100 100">
+                        <circle class="bg" cx="50" cy="50" r="45"></circle>
+                        <circle class="progress" id="scoreProgress" cx="50" cy="50" r="45"></circle>
+                    </svg>
+                    <div class="score-text">
+                        <span id="finalScore">78</span>
+                        <span class="max-score">/ 100</span>
+                    </div>
+                </div>
+
+                <div class="risk-breakdown">
+                    <div class="breakdown-item">
+                        <span>Security Risk</span>
+                        <div class="bar-bg"><div class="bar-fill" id="securityBar" style="width: 75%;"></div></div>
+                    </div>
+                    <div class="breakdown-item">
+                        <span>Safety Risk</span>
+                        <div class="bar-bg"><div class="bar-fill" id="safetyBar" style="width: 80%;"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p style="text-align: center; color: rgba(255,255,255,0.5); padding: 2rem 0;">&copy; 2026 Beginess Medical Platform. All rights reserved.</p>
+        </div>
+    </footer>
+
     <script src="js/risk-calculator.js"></script>
-    <script src="js/main.js"></script>
 </body>
 </html>
+

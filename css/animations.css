@@ -1,5 +1,395 @@
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+/* =====================================================
+   Apple-Inspired Animation System
+   Spring-based, GPU-accelerated, buttery smooth
+   ===================================================== */
+
+/* ── Custom Easing Curves (Apple-like spring feel) ── */
+:root {
+  --ease-spring:    cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ease-out-expo:  cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out:    cubic-bezier(0.45, 0, 0.55, 1);
+}
+
+/* ── Page Enter Animation ── */
+body { animation: pageEnter 0.6s var(--ease-out-expo) both; }
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Scroll-Triggered Reveals ── */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(48px);
+  transition: opacity 0.8s var(--ease-out-expo),
+              transform 0.8s var(--ease-out-expo);
+  will-change: transform, opacity;
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.85s var(--ease-out-expo),
+              transform 0.85s var(--ease-out-expo);
+  will-change: transform, opacity;
+}
+.reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.85s var(--ease-out-expo),
+              transform 0.85s var(--ease-out-expo);
+  will-change: transform, opacity;
+}
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 1s var(--ease-out-quart);
+  will-change: opacity;
+}
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.75s var(--ease-out-expo),
+              transform 0.75s var(--ease-spring);
+  will-change: transform, opacity;
+}
+.is-revealed {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Stagger delays */
+.delay-1 { transition-delay: 0.08s; }
+.delay-2 { transition-delay: 0.16s; }
+.delay-3 { transition-delay: 0.24s; }
+.delay-4 { transition-delay: 0.32s; }
+.delay-5 { transition-delay: 0.40s; }
+.delay-6 { transition-delay: 0.48s; }
+.delay-7 { transition-delay: 0.56s; }
+
+/* ── Hero Parallax BG ── */
+.hero-bg-img {
+  animation: slowZoom 28s ease-in-out infinite alternate;
+  will-change: transform;
+}
+@keyframes slowZoom {
+  0%   { transform: scale(1) translateY(0); }
+  100% { transform: scale(1.12) translateY(-2%); }
+}
+
+/* ── Floating Badge/Label ── */
+.hero-label {
+  animation: floatLabel 0.9s var(--ease-out-expo) both;
+  animation-delay: 0.1s;
+}
+@keyframes floatLabel {
+  from { opacity:0; transform: translateY(16px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ── Hero Title Gradient Shimmer (Apple product page style) ── */
+.hero-title {
+  background: linear-gradient(135deg, #fff 0%, #a8b2d1 40%, #00d2ff 70%, #fff 100%);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 6s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ── Card Hover (Apple card lift) ── */
+.solution-card {
+  transition: transform 0.45s var(--ease-out-expo),
+              border-color 0.3s ease,
+              box-shadow 0.45s var(--ease-out-expo);
+  transform: translateZ(0);
+}
+.solution-card:hover {
+  transform: translateY(-10px) scale(1.01);
+}
+
+/* ── Service Hero Image (3D tilt on hover) ── */
+.service-visual-wrap {
+  perspective: 1200px;
+  cursor: default;
+}
+.service-visual-wrap img {
+  transition: transform 0.6s var(--ease-out-expo),
+              box-shadow 0.6s var(--ease-out-expo);
+  transform-style: preserve-3d;
+  transform: rotateY(-6deg) rotateX(3deg);
+  border-radius: 16px;
+  box-shadow: 30px 30px 80px rgba(0,0,0,0.6), 0 0 40px rgba(0,210,255,0.08);
+  will-change: transform;
+}
+.service-visual-wrap:hover img {
+  transform: rotateY(0deg) rotateX(0deg);
+  box-shadow: 20px 20px 60px rgba(0,0,0,0.5), 0 0 60px rgba(0,112,240,0.15);
+}
+
+/* ── Image reveal on load ── */
+.service-visual-wrap.is-revealed img {
+  animation: imgReveal 0.9s var(--ease-out-expo) both;
+}
+@keyframes imgReveal {
+  from { opacity:0; transform: rotateY(-12deg) rotateX(6deg) scale(0.95); }
+  to   { opacity:1; transform: rotateY(-6deg) rotateX(3deg) scale(1); }
+}
+
+/* ── Trust badge pulse ── */
+.trust-item {
+  transition: transform 0.3s var(--ease-spring),
+              border-color 0.3s ease,
+              color 0.3s ease;
+}
+.trust-item:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+/* ── Nav link underline slide ── */
+.nav-link {
+  position: relative;
+  overflow: hidden;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 4px; left: 16px;
+  width: calc(100% - 32px);
+  height: 2px;
+  background: var(--accent-teal);
+  transform: translateX(-110%);
+  transition: transform 0.3s var(--ease-out-expo);
+  border-radius: 1px;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: translateX(0);
+}
+
+/* ── Gradient border cards (featured product) ── */
+.featured-product {
+  position: relative;
+  background: var(--bg-secondary);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.4s var(--ease-out-expo);
+}
+.featured-product:hover { transform: translateY(-4px); }
+.featured-product::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-teal), var(--accent-blue));
+  background-size: 200% 100%;
+  animation: borderFlow 3s linear infinite;
+}
+@keyframes borderFlow {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+
+/* ── CTA banner glow pulse ── */
+.cta-banner::before {
+  animation: glowPulse 4s ease-in-out infinite;
+}
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.6; transform: translate(-50%,-50%) scale(1); }
+  50%       { opacity: 1;   transform: translate(-50%,-50%) scale(1.15); }
+}
+
+/* ── Button ripple effect ── */
+.btn-primary, .btn-secondary, .btn-outline, .btn-danger {
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after, .btn-secondary::after,
+.btn-outline::after, .btn-danger::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 70%);
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.4s, transform 0.5s var(--ease-out-expo);
+}
+.btn-primary:active::after, .btn-secondary:active::after,
+.btn-outline:active::after, .btn-danger:active::after {
+  opacity: 1;
+  transform: scale(2.5);
+}
+
+/* ── Smooth number counter (JS driven) ── */
+.counter-value {
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+/* ── Mega menu smooth reveal ── */
+.mega-menu {
+  transition: opacity 0.25s var(--ease-out-quart),
+              transform 0.3s var(--ease-out-expo),
+              visibility 0.25s;
+}
+
+/* ── Step number bounce-in ── */
+.step-num {
+  transition: transform 0.3s var(--ease-spring);
+}
+.step:hover .step-num {
+  transform: scale(1.15);
+}
+
+/* ── Checklist item stagger (JS adds class) ── */
+.checklist li {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.4s var(--ease-out-expo),
+              transform 0.4s var(--ease-out-expo);
+}
+.checklist.is-revealed li { opacity: 1; transform: none; }
+.checklist.is-revealed li:nth-child(1) { transition-delay: 0.05s; }
+.checklist.is-revealed li:nth-child(2) { transition-delay: 0.10s; }
+.checklist.is-revealed li:nth-child(3) { transition-delay: 0.15s; }
+.checklist.is-revealed li:nth-child(4) { transition-delay: 0.20s; }
+.checklist.is-revealed li:nth-child(5) { transition-delay: 0.25s; }
+.checklist.is-revealed li:nth-child(6) { transition-delay: 0.30s; }
+
+/* ── Service hero image float animation ── */
+.service-icon-large {
+  animation: iconFloat 5s ease-in-out infinite;
+}
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-18px); }
+}
+
+/* ── Scroll progress indicator ── */
+#scrollProgress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-teal));
+  z-index: 9999;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* =========================================
+   RESPONSIVE OVERHAUL
+   Mobile-first, fluid typography, grid adapt
+   ========================================= */
+
+/* ── Fluid Typography ── */
+html {
+  font-size: clamp(14px, 1vw + 10px, 16px);
+}
+
+.hero-title   { font-size: clamp(2.2rem, 5vw + 1rem, 5rem); }
+.hero-subtitle { font-size: clamp(1rem, 1.5vw + 0.5rem, 1.3rem); }
+.section-header h2 { font-size: clamp(1.8rem, 3vw + 0.5rem, 2.8rem); }
+.service-hero-text h1 { font-size: clamp(2rem, 4vw + 0.5rem, 3.8rem); }
+.feature-text h2 { font-size: clamp(1.8rem, 3vw + 0.5rem, 2.6rem); }
+.cta-inner h2 { font-size: clamp(1.8rem, 3vw + 0.8rem, 3.2rem); }
+
+/* ── Container fluid padding ── */
+.container { padding: 0 clamp(16px, 4vw, 40px); }
+
+/* ── Tablet (≤1024px) ── */
+@media (max-width: 1024px) {
+  .nav-list { gap: 0; }
+  .solutions-grid { grid-template-columns: repeat(2, 1fr); }
+  .why-layout { gap: 48px; }
+  .feature-layout { gap: 48px; }
+}
+
+/* ── Mobile (≤768px) ── */
+@media (max-width: 768px) {
+  .desktop-only { display: none !important; }
+  .mobile-toggle { display: flex !important; }
+
+  /* Nav becomes full screen */
+  .navbar { height: 64px; }
+  :root { --nav-height: 64px; }
+  .nav-container { padding: 0 20px; }
+  .nav-logo h2 { font-size: 1.4rem; }
+
+  .nav-list, .nav-actions {
+    display: none;
+    position: fixed;
+    top: 64px; left: 0; right: 0; bottom: 0;
+    background: rgba(4, 13, 26, 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    z-index: 999;
+    border-top: 1px solid var(--border-color);
+  }
+  .nav-list.open, .nav-actions.open { display: flex; }
+  .nav-list { font-size: 1.3rem; }
+  .nav-actions { top: auto; bottom: 0; height: auto; padding: 24px; border-top: 1px solid var(--border-color); flex-direction: row; flex-wrap: wrap; justify-content: center; }
+
+  /* Stack all grids */
+  .hero-grid,
+  .solutions-grid,
+  .featured-inner,
+  .why-layout,
+  .feature-layout,
+  .two-col,
+  .service-hero-inner,
+  .footer-grid { grid-template-columns: 1fr !important; }
+
+  .service-hero-visual { display: none; }
+
+  .hero-enterprise { padding: 80px 0 60px; min-height: auto; }
+  .solutions-section { padding: 60px 0; }
+  .why-section { padding: 60px 0; }
+  .cta-banner { padding: 60px 0; }
+  .service-content { padding: 48px 0; }
+
+  .hero-actions, .cta-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary,
+  .cta-actions .btn-primary,
+  .cta-actions .btn-outline-light { width: 100%; text-align: center; }
+
+  .trust-items { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 8px; }
+  .trust-items::-webkit-scrollbar { height: 3px; }
+  .trust-items::-webkit-scrollbar-thumb { background: var(--accent-blue); border-radius: 2px; }
+
+  .footer-grid { grid-template-columns: 1fr 1fr !important; }
+  .brand-col { grid-column: 1 / -1; }
+  .featured-product { padding: 28px; }
+  .featured-inner { gap: 28px; }
+  .image-wrapper { display: none; }
+  .mega-menu { display: none; }
+}
+
+/* ── Small Mobile (≤480px) ── */
+@media (max-width: 480px) {
+  .solutions-grid { grid-template-columns: 1fr !important; }
+  .footer-grid { grid-template-columns: 1fr !important; }
+  .trust-item { font-size: 0.78rem; padding: 6px 12px; }
+  .service-hero-text h1 { font-size: 2.2rem; }
+}
+
+/* ── Hover only on non-touch devices ── */
+@media (hover: none) {
+  .solution-card:hover { transform: none; }
+  .service-visual-wrap:hover img { transform: rotateY(-6deg) rotateX(3deg); }
+  .trust-item:hover { transform: none; }
+}
+
+/* ── Reduced motion accessibility ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

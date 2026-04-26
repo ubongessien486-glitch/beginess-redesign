@@ -1,384 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Beginess – CREST-accredited cybersecurity consultancy offering penetration testing, vulnerability assessments, threat monitoring, compliance advisory, and incident response.">
-  <title>Beginess | Cybersecurity Built for the Future</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Beginess: Cutting-edge cybersecurity solutions built for the future. Expert penetration testing, threat monitoring, compliance advisory and more.">
+    <title>Beginess - Cyber Security Built for the Future</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="enterprise-dark">
+<div id="scrollProgress"></div>
 
-  <!-- ANNOUNCEMENT BAR -->
-  <div class="announce-bar">
-    🔐 Beginess is now CREST Accredited &mdash; Independently verified security excellence.
-    <a href="#certifications">Learn more →</a>
-  </div>
-
-  <!-- NAVBAR -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="index.html" class="nav-logo">Begi<span>ness</span></a>
-
-      <ul class="nav-menu" id="navMenu">
-        <li class="nav-item">
-          <a href="#services" class="nav-link">Services
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </a>
-          <div class="dropdown-menu">
-            <a href="#pentest">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-              Penetration Testing
-            </a>
-            <a href="#vuln">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              Vulnerability Assessments
-            </a>
-            <a href="#threat">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-              Threat Monitoring (SIEM)
-            </a>
-            <a href="#compliance">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-              Compliance &amp; Advisory
-            </a>
-            <a href="#incident">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-              Incident Response
-            </a>
-            <a href="#training">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-              Cybersecurity Training
-            </a>
-          </div>
-        </li>
-        <li class="nav-item"><a href="#certifications" class="nav-link">Certifications</a></li>
-        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-        <li class="nav-item"><a href="medical-device-risk-scoring.html" class="nav-link">Risk Scoring</a></li>
-        <li class="nav-item"><a href="#contact" class="nav-link nav-cta">Contact Us</a></li>
-      </ul>
-
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-eyebrow">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      CREST Accredited · ISO 27001 Certified
-    </div>
-    <h1 class="hero-title">
-      Security Isn't Just<br>What We Do &mdash;<br><em>It's Who We Are</em>
-    </h1>
-    <p class="hero-subtitle">
-      Beginess delivers expert-led cybersecurity consultancy — from penetration testing and threat monitoring to compliance advisory and incident response — protecting organisations across the UK and beyond.
-    </p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn-primary">
-        Get a Free Consultation
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-      <a href="#services" class="btn-outline">Explore Services</a>
-    </div>
-    <div class="hero-stats">
-      <div>
-        <span class="hero-stat-num">200+</span>
-        <div class="hero-stat-label">Clients Protected</div>
-      </div>
-      <div>
-        <span class="hero-stat-num">99.9%</span>
-        <div class="hero-stat-label">Threat Detection Rate</div>
-      </div>
-      <div>
-        <span class="hero-stat-num">24/7</span>
-        <div class="hero-stat-label">SOC Monitoring</div>
-      </div>
-      <div>
-        <span class="hero-stat-num">15+</span>
-        <div class="hero-stat-label">Years Experience</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- LOGOS / ACCREDITATIONS STRIP -->
-  <div class="logos-strip" id="certifications">
-    <div class="logos-inner">
-      <p class="logos-label">Trusted Accreditations &amp; Certifications</p>
-      <div class="logos-grid">
-        <span class="logo-item">CREST Accredited</span>
-        <span class="logo-item">PCI DSS Level 1</span>
-        <span class="logo-item">ISO 27001</span>
-        <span class="logo-item">ISO 9001</span>
-        <span class="logo-item">GDPR Compliant</span>
-        <span class="logo-item">Cyber Essentials+</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- SERVICES -->
-  <section class="section services-section" id="services">
-    <div class="section-inner">
-      <div class="text-center">
-        <span class="section-eyebrow">What We Do</span>
-        <h2 class="section-title">Comprehensive Cybersecurity Services</h2>
-        <p class="section-sub">From proactive threat hunting to regulatory compliance, our certified consultants protect your business at every layer.</p>
-      </div>
-      <div class="services-grid">
-
-        <div class="service-card" id="pentest">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          </div>
-          <h3>Penetration Testing</h3>
-          <p>Simulated real-world attacks by CREST-certified testers to uncover vulnerabilities before adversaries do — covering network, web app, mobile, and cloud environments.</p>
-          <a href="#contact" class="service-link">Request a pentest <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        </div>
-
-        <div class="service-card" id="vuln">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h3>Vulnerability Assessments</h3>
-          <p>Automated and manual scanning of your infrastructure to identify, classify, and prioritise security weaknesses with actionable remediation guidance.</p>
-          <a href="#contact" class="service-link">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        </div>
-
-        <div class="service-card" id="threat">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </div>
-          <h3>Threat Monitoring (SIEM)</h3>
-          <p>24/7 Security Operations Centre powered by industry-leading SIEM technology — detecting, alerting, and responding to threats in real time.</p>
-          <a href="#contact" class="service-link">Start monitoring <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        </div>
-
-        <div class="service-card" id="compliance">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          </div>
-          <h3>Compliance &amp; Advisory</h3>
-          <p>Expert guidance across PCI DSS, ISO 27001, GDPR, Cyber Essentials, and NIST frameworks — ensuring your business meets regulatory obligations.</p>
-          <a href="#contact" class="service-link">Get compliant <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        </div>
-
-        <div class="service-card" id="incident">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          </div>
-          <h3>Incident Response</h3>
-          <p>Rapid containment and forensic investigation when the worst happens. Our IR team minimises damage, recovers operations, and prevents recurrence.</p>
-          <a href="#contact" class="service-link">Emergency line <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        </div>
-
-        <div class="service-card" id="training">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-          </div>
-          <h3>Cybersecurity Training</h3>
-          <p>Bespoke security awareness programmes, phishing simulations, and technical training for your teams — turning your people into your strongest defence.</p>
-          <a href="#contact" class="service-link">Book training <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- DARK FEATURE: CERTIFICATIONS & TEAM CREDS -->
-  <section class="section dark-section" id="about">
-    <div class="section-inner">
-      <div class="feature-split">
-        <div>
-          <span class="section-eyebrow">Why Beginess</span>
-          <h2 class="section-title white">Your Security, Backed by the Industry's Best Credentials</h2>
-          <p class="section-sub white">Our team holds the certifications that matter — giving you confidence that every engagement is delivered to the highest professional standard.</p>
-          <ul class="feature-list">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              CREST Certified Testers &amp; Registered Penetration Testing company
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              OSCP — Offensive Security Certified Professional
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              CISSP &amp; CISM — Enterprise security leadership
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              CEH — Certified Ethical Hacker
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Cisco CCNA &amp; CCNP Security — Network security experts
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Certified EU GDPR Practitioner &amp; ISO 27001 Lead Implementer
-            </li>
-          </ul>
-          <a href="#contact" class="btn-primary">Work With Our Experts</a>
-        </div>
-        <div>
-          <div class="feature-visual">
-            <div class="feature-stat-row">
-              <div class="feature-stat-box">
-                <div class="num">200+</div>
-                <div class="lbl">Engagements</div>
-              </div>
-              <div class="feature-stat-box">
-                <div class="num">0</div>
-                <div class="lbl">Breaches on Watch</div>
-              </div>
+    <!-- Top Bar -->
+    <div class="top-bar desktop-only">
+        <div class="container top-bar-inner">
+            <span><i class="fas fa-phone-alt"></i>&nbsp; 24/7 Incident Hotline: <strong>+1 (800) 000-0000</strong></span>
+            <div class="top-bar-links">
+                <a href="training.html">Training</a>
+                <a href="compliance.html">Compliance</a>
+                <a href="#contact">Contact Us</a>
             </div>
-            <div class="feature-stat-row">
-              <div class="feature-stat-box">
-                <div class="num">24/7</div>
-                <div class="lbl">SOC Coverage</div>
-              </div>
-              <div class="feature-stat-box">
-                <div class="num">15+</div>
-                <div class="lbl">Years in Field</div>
-              </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><h2>BEGINESS</h2></a>
+
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-list" id="navList">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li class="has-mega">
+                    <a href="#" class="nav-link">Services <i class="fas fa-chevron-down nav-icon"></i></a>
+                    <div class="mega-menu">
+                        <div class="mega-inner container">
+                            <a href="penetration-testing.html" class="mega-item">
+                                <i class="fas fa-user-secret"></i>
+                                <div><strong>Penetration Testing</strong><span>Simulate real-world attacks to find vulnerabilities</span></div>
+                            </a>
+                            <a href="vulnerability-assessments.html" class="mega-item">
+                                <i class="fas fa-search"></i>
+                                <div><strong>Vulnerability Assessments</strong><span>Systematically identify and prioritize security gaps</span></div>
+                            </a>
+                            <a href="threat-monitoring.html" class="mega-item">
+                                <i class="fas fa-eye"></i>
+                                <div><strong>Threat Monitoring</strong><span>24/7 SIEM surveillance and real-time response</span></div>
+                            </a>
+                            <a href="compliance.html" class="mega-item">
+                                <i class="fas fa-file-contract"></i>
+                                <div><strong>Compliance &amp; Advisory</strong><span>GDPR, PCI DSS, ISO 27001 guidance</span></div>
+                            </a>
+                            <a href="incident-response.html" class="mega-item">
+                                <i class="fas fa-ambulance"></i>
+                                <div><strong>Incident Response</strong><span>Containment, forensics and recovery</span></div>
+                            </a>
+                            <a href="training.html" class="mega-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <div><strong>Cybersecurity Training</strong><span>Phishing simulations &amp; awareness programs</span></div>
+                            </a>
+                            <a href="medical-device-risk-scoring.html" class="mega-item mega-new">
+                                <i class="fas fa-heartbeat"></i>
+                                <div><strong>Medical Device Risk Scoring <span class="badge-new">New</span></strong><span>IoMT risk scoring for healthcare environments</span></div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="training.html" class="nav-link">Training</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+            </ul>
+
+            <div class="nav-actions" id="navActions">
+                <a href="incident-response.html" class="nav-emergency"><i class="fas fa-exclamation-triangle"></i> Report Incident</a>
+                <a href="#contact" class="btn-primary">Secure Your Business</a>
             </div>
-            <p style="font-size:13px;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:.08em;margin-top:8px">Company Accreditations</p>
-            <div class="cert-badges">
-              <span class="cert-badge">CREST</span>
-              <span class="cert-badge">PCI DSS L1</span>
-              <span class="cert-badge">ISO 27001</span>
-              <span class="cert-badge">ISO 9001</span>
-              <span class="cert-badge">Cyber Essentials+</span>
-              <span class="cert-badge">GDPR</span>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-enterprise">
+        <div class="hero-bg-wrapper">
+            <img src="assets/hero-bg.png" alt="Cybersecurity Abstract Background" class="hero-bg-img">
+            <div class="hero-bg-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-label reveal-up">Exposure Management Platform</div>
+                <h1 class="hero-title reveal-up delay-1">Cyber Security <br>Built for the Future</h1>
+                <p class="hero-subtitle reveal-up delay-2">At Beginess, security isn't just what we do — it's who we are. Our cutting-edge cybersecurity solutions are designed to outsmart hackers and shield your business from evolving digital threats.</p>
+                <div class="hero-actions reveal-up delay-3">
+                    <a href="#contact" class="btn-primary btn-lg hover-magnetic">Secure Your Business Today</a>
+                    <a href="#services" class="btn-secondary btn-lg hover-magnetic">Explore Our Services</a>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="highlight-section" id="testimonials">
-    <div class="section-inner">
-      <div class="text-center">
-        <span class="section-eyebrow">Client Stories</span>
-        <h2 class="section-title">Trusted by Organisations That Can't Afford to Fail</h2>
-        <p class="section-sub">Real outcomes from real engagements across financial services, healthcare, retail, and the public sector.</p>
-      </div>
-      <div class="highlight-cards">
-        <div class="highlight-card">
-          <blockquote>"Beginess identified critical vulnerabilities in our infrastructure that two previous vendors missed. Their report was clear, prioritised, and actionable. We were patched within the week."</blockquote>
-          <div class="highlight-author">Head of IT Security</div>
-          <div class="highlight-role">UK Financial Services Firm</div>
+    <!-- Trust Bar / Certifications -->
+    <section class="trust-bar">
+        <div class="container">
+            <p class="trust-label">OUR ACCREDITATIONS &amp; CERTIFICATIONS</p>
+            <div class="trust-items">
+                <div class="trust-item"><i class="fas fa-certificate"></i> CREST Accredited</div>
+                <div class="trust-item"><i class="fas fa-award"></i> OSCP Certified</div>
+                <div class="trust-item"><i class="fas fa-shield-alt"></i> CISSP</div>
+                <div class="trust-item"><i class="fas fa-user-shield"></i> CEH</div>
+                <div class="trust-item"><i class="fas fa-lock"></i> ISO 27001</div>
+                <div class="trust-item"><i class="fas fa-network-wired"></i> Cisco CCNP Security</div>
+                <div class="trust-item"><i class="fas fa-balance-scale"></i> EU GDPR Practitioner</div>
+                <div class="trust-item"><i class="fas fa-briefcase"></i> CISM</div>
+            </div>
         </div>
-        <div class="highlight-card">
-          <blockquote>"Their 24/7 threat monitoring caught a ransomware attempt at 3am on a Sunday. The SOC team contained it before a single file was encrypted. Genuinely invaluable."</blockquote>
-          <div class="highlight-author">CTO</div>
-          <div class="highlight-role">National Healthcare Provider</div>
-        </div>
-        <div class="highlight-card">
-          <blockquote>"We achieved ISO 27001 certification six months ahead of schedule thanks to Beginess's advisory team. The whole process was seamless and professionally managed."</blockquote>
-          <div class="highlight-author">Compliance Director</div>
-          <div class="highlight-role">Global Retail Group</div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA BAND -->
-  <section class="cta-band" id="contact">
-    <div class="section-inner">
-      <h2>Ready to Secure Your Organisation?</h2>
-      <p>Speak with a CREST-certified consultant today. No obligations — just expert advice tailored to your risk landscape.</p>
-      <div>
-        <a href="mailto:info@beginess.com" class="btn-dark">
-          Get a Free Consultation
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-        <a href="tel:+441234567890" class="btn-ghost-dark">Call Us Now</a>
-      </div>
-    </div>
-  </section>
+    <!-- Services Section -->
+    <section class="solutions-section" id="services">
+        <div class="container">
+            <div class="section-header text-center reveal-up">
+                <h2>The Unified Platform for Exposure Management</h2>
+                <p>Prevent cyber attacks and accurately communicate cyber risk to support optimal business performance.</p>
+            </div>
+            <div class="solutions-grid">
+                <a href="penetration-testing.html" class="solution-card reveal-up delay-1">
+                    <div class="card-icon"><i class="fas fa-user-secret"></i></div>
+                    <h3>Penetration Testing</h3>
+                    <p>Simulate real-world attacks to uncover your vulnerabilities with actionable, expert-led reporting before attackers find them first.</p>
+                    <span class="text-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="vulnerability-assessments.html" class="solution-card reveal-up delay-2">
+                    <div class="card-icon"><i class="fas fa-search"></i></div>
+                    <h3>Vulnerability Assessments</h3>
+                    <p>Systematically identify and prioritize security gaps across your entire infrastructure before they can be exploited.</p>
+                    <span class="text-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="threat-monitoring.html" class="solution-card reveal-up delay-3">
+                    <div class="card-icon"><i class="fas fa-eye"></i></div>
+                    <h3>Threat Monitoring</h3>
+                    <p>Continuous 24/7 SIEM surveillance and real-time response to detect and minimize damage from active threats.</p>
+                    <span class="text-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="compliance.html" class="solution-card reveal-up delay-4">
+                    <div class="card-icon"><i class="fas fa-file-contract"></i></div>
+                    <h3>Compliance &amp; Advisory</h3>
+                    <p>Expert guidance on GDPR, PCI DSS, ISO 27001 compliance, risk management and strategic security advisory.</p>
+                    <span class="text-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="incident-response.html" class="solution-card reveal-up delay-5">
+                    <div class="card-icon"><i class="fas fa-ambulance"></i></div>
+                    <h3>Incident Response</h3>
+                    <p>Critical containment, digital forensics, and full recovery lifecycles available 24/7 when you need us most.</p>
+                    <span class="text-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="training.html" class="solution-card reveal-up delay-6">
+                    <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Cybersecurity Training</h3>
+                    <p>Security awareness programs, role-based technical training, and phishing simulations to build a security-first culture.</p>
+                    <span class="text-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                </a>
+            </div>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <div class="logo">Begi<span>ness</span></div>
-          <p>Engineering the future of cybersecurity. CREST-accredited, ISO 27001-certified, and relentlessly focused on your protection.</p>
-          <div class="footer-certs">
-            <span class="footer-cert">CREST</span>
-            <span class="footer-cert">ISO 27001</span>
-            <span class="footer-cert">PCI DSS</span>
-          </div>
-          <div class="footer-socials" style="margin-top:20px">
-            <a href="#" aria-label="LinkedIn">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            </a>
-            <a href="#" aria-label="Twitter">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
-            </a>
-          </div>
+            <!-- Additional Feature: Medical Risk Scoring -->
+            <div class="featured-product reveal-up">
+                <div class="featured-label"><i class="fas fa-star"></i> Additional Feature</div>
+                <div class="featured-inner">
+                    <div class="featured-text">
+                        <div class="badge-new-inline">New</div>
+                        <h3>Medical Device Cyber Risk Scoring</h3>
+                        <p>Our specialized risk assessment platform for healthcare environments. Score IoMT (Internet of Medical Things) devices — infusion pumps, MRI machines, patient monitors — using our proprietary risk algorithm combining CVSS vulnerability scores with real-world patient safety impact.</p>
+                        <a href="medical-device-risk-scoring.html" class="btn-primary" style="margin-top:1.5rem; display:inline-flex; align-items:center; gap:10px;">Launch Risk Calculator <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="featured-image">
+                        <img src="assets/dashboard.png" alt="Medical Risk Scoring Dashboard" class="featured-img">
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="footer-col">
-          <h4>Services</h4>
-          <ul>
-            <li><a href="#pentest">Penetration Testing</a></li>
-            <li><a href="#vuln">Vulnerability Assessments</a></li>
-            <li><a href="#threat">Threat Monitoring</a></li>
-            <li><a href="#compliance">Compliance &amp; Advisory</a></li>
-            <li><a href="#incident">Incident Response</a></li>
-            <li><a href="#training">Security Training</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Solutions</h4>
-          <ul>
-            <li><a href="#">Financial Services</a></li>
-            <li><a href="#">Healthcare</a></li>
-            <li><a href="#">Retail &amp; E-Commerce</a></li>
-            <li><a href="#">Public Sector</a></li>
-            <li><a href="medical-device-risk-scoring.html">Medical Device Risk</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Company</h4>
-          <ul>
-            <li><a href="#about">About Beginess</a></li>
-            <li><a href="#certifications">Accreditations</a></li>
-            <li><a href="#testimonials">Case Studies</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Careers</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <ul>
-            <li><a href="mailto:info@beginess.com">info@beginess.com</a></li>
-            <li><a href="tel:+441234567890">+44 (0) 1234 567 890</a></li>
-            <li><a href="#">Emergency IR Hotline</a></li>
-            <li><a href="#">Book a Demo</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Beginess Ltd. All rights reserved. Registered in England &amp; Wales.</p>
-        <div class="footer-bottom-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Cookie Policy</a>
-          <a href="#">Responsible Disclosure</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </section>
 
-  <script src="js/main.js"></script>
+    <!-- Why Beginess -->
+    <section class="why-section" id="about">
+        <div class="container">
+            <div class="why-layout">
+                <div class="why-image reveal-left">
+                    <div class="image-wrapper">
+                        <img src="assets/main-dashboard.png" alt="Beginess Platform Dashboard" class="dashboard-img">
+                        <div class="dashboard-glow"></div>
+                    </div>
+                </div>
+                <div class="why-text reveal-right">
+                    <h2>Engineering the Future of Cybersecurity</h2>
+                    <p class="why-sub">At Beginess, security isn't just what we do — it's who we are. Our team of accredited professionals brings decades of combined experience across industries.</p>
+                    <div class="why-points">
+                        <div class="why-point">
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>Expert Team</strong><p>CREST Accredited, OSCP, CISSP, CISM, CEH and ISO 27001 certified professionals.</p></div>
+                        </div>
+                        <div class="why-point">
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>24/7 Coverage</strong><p>Round-the-clock threat monitoring, SIEM alerts, and emergency incident response.</p></div>
+                        </div>
+                        <div class="why-point">
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>Proven Methodology</strong><p>Structured, repeatable security lifecycles with clear, actionable remediation reporting.</p></div>
+                        </div>
+                        <div class="why-point">
+                            <i class="fas fa-check-circle"></i>
+                            <div><strong>Compliance Ready</strong><p>Full GDPR, PCI DSS, ISO 27001 coverage so you stay compliant across global markets.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner" id="contact">
+        <div class="container">
+            <div class="cta-inner reveal-up">
+                <h2>Ready to Secure Your Business?</h2>
+                <p>Talk to our team of certified cybersecurity experts today. We tailor a solution to your exact needs.</p>
+                <div class="cta-actions">
+                    <a href="mailto:info@beginess.com" class="btn-primary btn-lg hover-magnetic">Get in Touch</a>
+                    <a href="incident-response.html" class="btn-outline-light btn-lg hover-magnetic"><i class="fas fa-exclamation-triangle"></i> Report an Incident (24/7)</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="enterprise-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col brand-col">
+                    <h2>BEGINESS</h2>
+                    <p>Cyber Security Built for the Future.</p>
+                    <p style="margin-top:8px; font-size:0.85rem;">Engineering the Future of Cybersecurity</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="penetration-testing.html">Penetration Testing</a></li>
+                        <li><a href="vulnerability-assessments.html">Vulnerability Assessments</a></li>
+                        <li><a href="threat-monitoring.html">Threat Monitoring</a></li>
+                        <li><a href="compliance.html">Compliance &amp; Advisory</a></li>
+                        <li><a href="incident-response.html">Incident Response</a></li>
+                        <li><a href="training.html">Cybersecurity Training</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="medical-device-risk-scoring.html">Medical Risk Scoring <span style="color:var(--accent-teal);font-size:0.75rem;"> New</span></a></li>
+                        <li><a href="#">Exposure Management</a></li>
+                        <li><a href="#">Threat Intelligence</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#">Certifications</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="incident-response.html">Emergency Response</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Beginess. All rights reserved.</p>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
