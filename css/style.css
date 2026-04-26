@@ -3,23 +3,25 @@
    Inspired by Tenable.com
    ============================================ */
 :root {
-    --bg-primary: #040d1a;
-    --bg-secondary: #091828;
+    /* Tenable-inspired palette */
+    --bg-primary: #06111e;        /* Tenable's deep near-black navy */
+    --bg-secondary: #0c1d2e;      /* Slightly lighter section bg */
     --bg-tertiary: #112240;
-    --bg-card: #0d2137;
+    --bg-card: #0d2035;
     --text-primary: #ffffff;
-    --text-secondary: #a8b2d1;
-    --accent-blue: #0070f0;
-    --accent-blue-hover: #0056cc;
-    --accent-teal: #00d2ff;
-    --accent-red: #ff3b30;
-    --border-color: rgba(255, 255, 255, 0.09);
-    --border-hover: rgba(0, 112, 240, 0.5);
+    --text-secondary: #94a3b8;
+    --accent-blue: #0073e6;       /* Tenable CTA blue */
+    --accent-blue-hover: #005bb5;
+    --accent-teal: #00b388;       /* Tenable signature green */
+    --accent-green: #00c48c;
+    --accent-red: #e8272a;        /* Tenable red */
+    --border-color: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(0, 179, 136, 0.5);
     --nav-height: 72px;
     --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --radius: 8px;
+    --radius: 6px;
     --shadow-card: 0 4px 24px rgba(0,0,0,0.4);
-    --shadow-hover: 0 20px 40px rgba(0,0,0,0.5), 0 0 20px rgba(0,112,240,0.12);
+    --shadow-hover: 0 20px 40px rgba(0,0,0,0.5), 0 0 20px rgba(0,179,136,0.1);
 }
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -150,21 +152,102 @@ img { max-width: 100%; display: block; }
 /* ---- Hero ---- */
 .hero-enterprise {
     position: relative; min-height: 88vh; display: flex; align-items: center;
-    overflow: hidden; padding: 100px 0 80px;
+    overflow: hidden; padding: 80px 0 60px;
 }
 .hero-bg-wrapper { position: absolute; inset: 0; z-index: 0; }
-.hero-bg-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; animation: slowZoom 30s ease-in-out infinite alternate; }
+.hero-bg-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.35; }
+/* Tenable-style: strong dark overlay from left so text stays readable */
 .hero-bg-overlay {
     position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(4,13,26,0.85) 0%, rgba(4,13,26,0.5) 60%, rgba(4,13,26,0.7) 100%);
+    background: linear-gradient(105deg, rgba(6,17,30,0.96) 0%, rgba(6,17,30,0.82) 50%, rgba(6,17,30,0.5) 100%);
 }
-.hero-content { position: relative; z-index: 1; max-width: 800px; }
-.hero-label { color: var(--accent-teal); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 20px; }
-.hero-title { font-size: 4.5rem; line-height: 1.05; margin-bottom: 24px; background: linear-gradient(180deg, #fff 0%, #a8b2d1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.hero-subtitle { font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 40px; max-width: 680px; }
-.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
 
-@keyframes slowZoom { 0% { transform: scale(1); } 100% { transform: scale(1.12); } }
+/* Two-column hero: text left, screenshot right (Tenable signature) */
+.hero-split {
+    position: relative; z-index: 1;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; align-items: center;
+}
+.hero-content { max-width: 600px; }
+.hero-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--accent-teal); font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    font-size: 0.8rem; margin-bottom: 20px;
+    background: rgba(0,179,136,0.08); border: 1px solid rgba(0,179,136,0.25);
+    padding: 5px 14px; border-radius: 20px;
+}
+.hero-title {
+    font-size: clamp(2.6rem, 4.5vw, 4rem); line-height: 1.08;
+    margin-bottom: 24px; font-weight: 800; letter-spacing: -0.02em;
+}
+.hero-subtitle { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 36px; line-height: 1.7; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 28px; }
+
+/* Tenable-style social proof under buttons */
+.hero-trust {
+    display: flex; align-items: center; gap: 12px;
+    padding-top: 20px; border-top: 1px solid var(--border-color);
+    font-size: 0.82rem; color: var(--text-secondary);
+}
+
+/* Hero right: floating screenshot */
+.hero-screenshot { position: relative; }
+.screenshot-wrap {
+    position: relative;
+    filter: drop-shadow(0 30px 60px rgba(0,0,0,0.7));
+    animation: floatY 6s ease-in-out infinite;
+}
+.screenshot-wrap img {
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    width: 100%;
+}
+.screenshot-badge {
+    position: absolute; bottom: -16px; left: 20px;
+    background: var(--accent-teal); color: #fff;
+    font-size: 0.8rem; font-weight: 700;
+    padding: 8px 16px; border-radius: 20px;
+    display: flex; align-items: center; gap: 6px;
+    box-shadow: 0 8px 20px rgba(0,179,136,0.4);
+    animation: badgePop 0.6s 0.8s var(--ease-spring) both;
+}
+@keyframes floatY {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-14px); }
+}
+@keyframes badgePop {
+    from { opacity:0; transform: scale(0.8) translateY(10px); }
+    to   { opacity:1; transform: scale(1) translateY(0); }
+}
+
+@keyframes slowZoom { 0% { transform: scale(1); } 100% { transform: scale(1.08); } }
+
+/* ---- Stats Band (Tenable-style big numbers) ---- */
+.stats-band {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 48px 0;
+}
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    text-align: center;
+}
+.stat-item {
+    padding: 24px;
+    border-right: 1px solid var(--border-color);
+}
+.stat-item:last-child { border-right: none; }
+.stat-number {
+    font-size: 3rem; font-weight: 800;
+    background: linear-gradient(135deg, var(--accent-teal), var(--accent-blue));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    line-height: 1; margin-bottom: 8px;
+}
+.stat-label { color: var(--text-secondary); font-size: 0.88rem; font-weight: 500; letter-spacing: 0.5px; }
 
 /* ---- Trust Bar ---- */
 .trust-bar { background: var(--bg-secondary); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 32px 0; }
@@ -313,7 +396,14 @@ img { max-width: 100%; display: block; }
     .nav-list.open, .nav-actions.open { display: flex; }
     .navbar { position: sticky; }
     .nav-container { position: relative; }
-    .hero-title { font-size: 3rem; }
+    /* Stack hero on mobile */
+    .hero-split { grid-template-columns: 1fr; gap: 40px; }
+    .hero-screenshot { display: none; } /* Hide on mobile for clean layout */
+    .hero-content { max-width: 100%; }
+    /* Stats: 2x2 grid on mobile */
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .stat-item { border-right: none; border-bottom: 1px solid var(--border-color); }
+    .stat-item:nth-child(odd) { border-right: 1px solid var(--border-color); }
     .solutions-grid { grid-template-columns: 1fr; }
     .featured-inner, .why-layout, .two-col, .service-hero-inner { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
