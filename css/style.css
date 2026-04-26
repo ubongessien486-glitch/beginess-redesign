@@ -103,7 +103,7 @@ img { max-width: 100%; display: block; }
     height: 42px; width: auto;
     object-fit: contain;
     mix-blend-mode: screen;
-    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.5));
+    filter: drop-shadow(0 0 8px rgba(165, 180, 252, 0.5));
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .nav-logo:hover .nav-logo-img {
@@ -112,7 +112,7 @@ img { max-width: 100%; display: block; }
 .nav-logo-text {
     font-size: 1.5rem; font-weight: 800;
     letter-spacing: 2.5px; color: #fff;
-    background: linear-gradient(135deg, #d4af37, #f5e07c, #c9920a);
+    background: linear-gradient(to right, #a5b4fc, rgba(255,255,255,0.9), #fda4af);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 
@@ -263,7 +263,7 @@ img { max-width: 100%; display: block; }
 .stat-item:last-child { border-right: none; }
 .stat-number {
     font-size: 3rem; font-weight: 800;
-    background: linear-gradient(135deg, var(--accent-teal), var(--accent-blue));
+    background: linear-gradient(to bottom, #fff, rgba(255,255,255,0.8));
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     line-height: 1; margin-bottom: 8px;
 }

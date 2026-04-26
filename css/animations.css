@@ -88,7 +88,7 @@ body { animation: pageEnter 0.6s var(--ease-out-expo) both; }
 
 /* ── Hero Title Gradient Shimmer (Apple product page style) ── */
 .hero-title {
-  background: linear-gradient(135deg, #fff 0%, #a8b2d1 40%, #00d2ff 70%, #fff 100%);
+  background: linear-gradient(135deg, #a5b4fc 0%, rgba(255,255,255,0.9) 40%, #fda4af 70%, #a5b4fc 100%);
   background-size: 300% 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
