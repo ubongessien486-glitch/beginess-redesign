@@ -1,5 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // ── Open all page links in a new tab ─────────────────────────────────────
+    document.querySelectorAll('a[href]').forEach(a => {
+        const href = a.getAttribute('href');
+        // Skip hash anchors, mailto, tel — only real page links
+        if (href && !href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
+            a.setAttribute('target', '_blank');
+            a.setAttribute('rel', 'noopener noreferrer');
+        }
+    });
+
     // ── Scroll Progress Bar ───────────────────────────────────────────────────
     const progressBar = document.getElementById('scrollProgress');
     if (progressBar) {
