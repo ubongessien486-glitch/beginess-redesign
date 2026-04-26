@@ -38,3 +38,5 @@ logs/
 
 # Optional: if you ever add secrets
 secrets/
+
+.vercel

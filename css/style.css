@@ -436,3 +436,117 @@ img { max-width: 100%; display: block; }
     .hero-actions { flex-direction: column; }
     .footer-grid { grid-template-columns: 1fr; }
 }
+
+/* =========================================================
+   21 DEV GEOMETRIC HERO (Vanilla HTML/CSS Port)
+   ========================================================= */
+.hero-geometric {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #030303;
+}
+.hero-geo-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom right, rgba(99, 102, 241, 0.05), transparent, rgba(244, 63, 94, 0.05));
+    filter: blur(64px);
+}
+.hero-geo-blur { position: absolute; inset: 0; overflow: hidden; }
+
+/* Elegant Shapes */
+.shape-container { position: absolute; inset: 0; overflow: hidden; }
+.elegant-shape {
+    position: absolute;
+    opacity: 0;
+    animation: shapeEnter 2.4s cubic-bezier(0.23, 0.86, 0.39, 0.96) forwards;
+}
+.shape-inner {
+    position: relative;
+    border-radius: 9999px;
+    background: linear-gradient(to right, transparent, transparent);
+    backdrop-filter: blur(2px);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.1);
+    animation: floatShape 12s ease-in-out infinite;
+}
+.shape-inner::after {
+    content: '';
+    position: absolute; inset: 0; border-radius: 9999px;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2), transparent 70%);
+}
+
+@keyframes shapeEnter {
+    from { opacity: 0; transform: translateY(-150px) rotate(calc(var(--r) - 15deg)); }
+    to { opacity: 1; transform: translateY(0) rotate(var(--r)); }
+}
+@keyframes floatShape {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(15px); }
+}
+
+/* Shape Positioning (Matching React component) */
+.shape-1 { left: -5%; top: 20%; --r: 12deg; animation-delay: 0.3s; }
+.shape-1 .shape-inner { width: 600px; height: 140px; background: linear-gradient(to right, rgba(99, 102, 241, 0.15), transparent); }
+
+.shape-2 { right: 0%; top: 75%; --r: -15deg; animation-delay: 0.5s; }
+.shape-2 .shape-inner { width: 500px; height: 120px; background: linear-gradient(to right, rgba(244, 63, 94, 0.15), transparent); }
+
+.shape-3 { left: 10%; bottom: 10%; --r: -8deg; animation-delay: 0.4s; }
+.shape-3 .shape-inner { width: 300px; height: 80px; background: linear-gradient(to right, rgba(139, 92, 246, 0.15), transparent); }
+
+.shape-4 { right: 20%; top: 15%; --r: 20deg; animation-delay: 0.6s; }
+.shape-4 .shape-inner { width: 200px; height: 60px; background: linear-gradient(to right, rgba(245, 158, 11, 0.15), transparent); }
+
+.shape-5 { left: 25%; top: 10%; --r: -25deg; animation-delay: 0.7s; }
+.shape-5 .shape-inner { width: 150px; height: 40px; background: linear-gradient(to right, rgba(6, 182, 212, 0.15), transparent); }
+
+/* Typography */
+.max-w-3xl { max-width: 48rem; margin-inline: auto; padding-top: 120px; }
+.geo-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 16px; border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 48px;
+}
+.badge-dot { font-size: 8px; color: rgba(244, 63, 94, 0.8); }
+.geo-badge span { font-size: 0.875rem; color: rgba(255, 255, 255, 0.6); letter-spacing: 0.05em; }
+
+.geo-title {
+    font-size: clamp(2.5rem, 6vw, 5.5rem);
+    font-weight: 700; line-height: 1.1;
+    margin-bottom: 32px; letter-spacing: -0.02em;
+}
+.geo-title-1 {
+    background: linear-gradient(to bottom, #fff, rgba(255,255,255,0.8));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.geo-title-2 {
+    background: linear-gradient(to right, #a5b4fc, rgba(255,255,255,0.9), #fda4af);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.geo-subtitle {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 48px; line-height: 1.625;
+    font-weight: 300; letter-spacing: 0.025em;
+    max-width: 36rem; margin-inline: auto;
+}
+
+.hero-geo-fade {
+    position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(to top, #030303, transparent, rgba(3,3,3,0.8));
+}
+
+@media (max-width: 768px) {
+    .shape-1 { left: -10%; top: 15%; }
+    .shape-2 { right: -5%; top: 70%; }
+    .shape-3 { left: 5%; bottom: 5%; }
+    .shape-4 { right: 15%; top: 10%; }
+    .shape-5 { left: 20%; top: 5%; }
+}
