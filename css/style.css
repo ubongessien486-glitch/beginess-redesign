@@ -769,32 +769,47 @@ img { max-width: 100%; display: block; }
     inset: 0;
     overflow: hidden;
     z-index: 0;
+    background: radial-gradient(circle at center, rgba(0, 229, 255, 0.05) 0%, transparent 70%);
 }
+
 .cybercore-floor {
     position: absolute;
-    bottom: -20%;
-    left: -20%;
-    right: -20%;
-    height: 50%;
-    background: radial-gradient(ellipse at center, rgba(0,229,255,0.1) 0%, transparent 70%);
-    transform: perspective(500px) rotateX(60deg);
-    animation: floorGlow 4s ease-in-out infinite;
+    bottom: -50%;
+    left: -50%;
+    width: 200%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(0, 229, 255, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 229, 255, 0.15) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: 0 0;
+    transform: perspective(600px) rotateX(75deg);
+    animation: moveGrid 3s linear infinite, floorPulse 4s ease-in-out infinite;
+    mask-image: linear-gradient(to top, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 80%);
+    -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 80%);
 }
+
 .cybercore-main-column {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle at center, rgba(0,229,255,0.08) 0%, transparent 60%);
+    width: 1px;
+    height: 100%;
+    background: var(--cyber-light);
+    box-shadow: 0 0 40px 10px var(--cyber-glow-1), 0 0 100px 20px rgba(0,229,255,0.2);
     animation: mainGlow 3s alternate infinite;
+    opacity: 0.5;
 }
+
 .light-stream-container {
     position: absolute;
     inset: 0;
     overflow: hidden;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%);
 }
+
 .light-beam {
     position: absolute;
     bottom: -10%;
@@ -804,31 +819,41 @@ img { max-width: 100%; display: block; }
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
+
 .light-beam.primary {
     background: var(--cyber-light);
-    box-shadow: 0 0 8px var(--cyber-glow-1);
+    box-shadow: 0 0 8px var(--cyber-glow-1), 0 0 15px var(--cyber-glow-2);
 }
+
 .light-beam.secondary {
     background: var(--cyber-highlight);
     box-shadow: 0 0 12px var(--cyber-highlight-glow);
 }
 
 @keyframes rise {
-  0% { transform: translateY(100%); opacity: 0; }
+  0% { transform: translateY(10%); opacity: 0; }
   10% { opacity: 1; }
-  100% { transform: translateY(-120vh); opacity: 0; }
+  100% { transform: translateY(-110vh); opacity: 0; }
 }
+
 @keyframes fade {
   0%, 100% { opacity: 0; }
   5%, 85% { opacity: 0.8; }
 }
-@keyframes floorGlow {
-  0%, 100% { transform: perspective(500px) rotateX(60deg) scale(0.95); opacity: 0.7; }
-  50% { transform: perspective(500px) rotateX(60deg) scale(1.05); opacity: 1; }
+
+@keyframes moveGrid {
+  from { background-position: 0 0; }
+  to { background-position: 0 50px; }
 }
+
+@keyframes floorPulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
 @keyframes mainGlow {
-  from { opacity: 0.5; filter: blur(30px); }
-  to { opacity: 0.7; filter: blur(20px); }
+  from { opacity: 0.3; filter: blur(20px); }
+  to { opacity: 0.6; filter: blur(30px); }
 }
 
 /* Typography */
