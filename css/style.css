@@ -81,12 +81,20 @@ img { max-width: 100%; display: block; }
 /* ---- Navbar ---- */
 .navbar {
     height: var(--nav-height);
-    background: rgba(4, 13, 26, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    /* NO backdrop-filter here — it creates a containing block that traps fixed children */
+    background: transparent;
     border-bottom: 1px solid var(--border-color);
     position: sticky; top: 0; z-index: 1000;
     transition: box-shadow 0.3s ease;
+}
+/* Put the blur on a pseudo-element so it doesn't trap fixed descendants */
+.navbar::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: rgba(4, 13, 26, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: -1;
 }
 .navbar.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.6); }
 
