@@ -1,0 +1,6 @@
+/* Medical Platform specific styles */
+.medical-container {
+    padding: 2rem;
+    border-radius: 8px;
+    background: #ffffff;
+}
