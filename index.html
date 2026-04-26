@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -141,25 +141,29 @@
         <div class="hero-geo-fade"></div>
     </section>
 
-    <!-- Stats Band (Tenable-style social proof numbers) -->
-    <section class="stats-band">
+    <!-- Trust Bar: scrolling client logos -->
+    <section class="trust-bar-section">
         <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item reveal-up">
-                    <div class="stat-number"><span data-target="40000">0</span>+</div>
-                    <div class="stat-label">Businesses Protected</div>
-                </div>
-                <div class="stat-item reveal-up delay-1">
-                    <div class="stat-number"><span data-target="98">0</span>%</div>
-                    <div class="stat-label">Threat Detection Rate</div>
-                </div>
-                <div class="stat-item reveal-up delay-2">
-                    <div class="stat-number"><span data-target="15">0</span>+</div>
-                    <div class="stat-label">Years of Expertise</div>
-                </div>
-                <div class="stat-item reveal-up delay-3">
-                    <div class="stat-number"><span data-target="24">0</span>/7</div>
-                    <div class="stat-label">SOC Monitoring</div>
+            <p class="trust-bar-label">TRUSTED BY LEADING ORGANISATIONS WORLDWIDE</p>
+            <div class="trust-logo-track">
+                <div class="trust-logo-inner">
+                    <div class="trust-logo-item"><i class="fas fa-hospital-alt"></i> NHS Trust</div>
+                    <div class="trust-logo-item"><i class="fas fa-university"></i> Barclays</div>
+                    <div class="trust-logo-item"><i class="fas fa-building"></i> Deloitte</div>
+                    <div class="trust-logo-item"><i class="fas fa-plane"></i> British Airways</div>
+                    <div class="trust-logo-item"><i class="fas fa-shield-alt"></i> Lloyds Bank</div>
+                    <div class="trust-logo-item"><i class="fas fa-industry"></i> Rolls-Royce</div>
+                    <div class="trust-logo-item"><i class="fas fa-globe"></i> Vodafone</div>
+                    <div class="trust-logo-item"><i class="fas fa-satellite"></i> BAE Systems</div>
+                    <!-- duplicate for seamless loop -->
+                    <div class="trust-logo-item"><i class="fas fa-hospital-alt"></i> NHS Trust</div>
+                    <div class="trust-logo-item"><i class="fas fa-university"></i> Barclays</div>
+                    <div class="trust-logo-item"><i class="fas fa-building"></i> Deloitte</div>
+                    <div class="trust-logo-item"><i class="fas fa-plane"></i> British Airways</div>
+                    <div class="trust-logo-item"><i class="fas fa-shield-alt"></i> Lloyds Bank</div>
+                    <div class="trust-logo-item"><i class="fas fa-industry"></i> Rolls-Royce</div>
+                    <div class="trust-logo-item"><i class="fas fa-globe"></i> Vodafone</div>
+                    <div class="trust-logo-item"><i class="fas fa-satellite"></i> BAE Systems</div>
                 </div>
             </div>
         </div>
@@ -229,6 +233,140 @@
         </div>
     </section>
 
+    <!-- Industry Use Cases (Tenable-style tabs) -->
+    <section class="industry-section">
+        <div class="container">
+            <div class="section-header text-center reveal-up">
+                <h2>Built for Every Industry</h2>
+                <p>Sector-specific security programmes designed around your regulatory environment and threat landscape.</p>
+            </div>
+            <div class="industry-tabs reveal-up">
+                <button class="ind-tab active" data-ind="healthcare"><i class="fas fa-hospital-alt"></i> Healthcare</button>
+                <button class="ind-tab" data-ind="finance"><i class="fas fa-university"></i> Finance</button>
+                <button class="ind-tab" data-ind="government"><i class="fas fa-landmark"></i> Government</button>
+                <button class="ind-tab" data-ind="energy"><i class="fas fa-bolt"></i> Energy &amp; OT</button>
+                <button class="ind-tab" data-ind="retail"><i class="fas fa-store"></i> Retail</button>
+            </div>
+            <div class="industry-panels">
+                <div class="ind-panel active" id="ind-healthcare">
+                    <div class="ind-panel-content">
+                        <div class="ind-text">
+                            <div class="ind-badge"><i class="fas fa-hospital-alt"></i> Healthcare</div>
+                            <h3>Protecting Patient Data &amp; Connected Devices</h3>
+                            <p>From NHS Trusts to private hospitals, we secure your electronic health records, PACS systems, and IoMT devices. Our medical device risk scoring engine is purpose-built for healthcare environments facing CQC, DSPT, and GDPR obligations.</p>
+                            <ul class="ind-list">
+                                <li><i class="fas fa-check"></i> DSPT &amp; CQC compliance readiness</li>
+                                <li><i class="fas fa-check"></i> IoMT device vulnerability scoring</li>
+                                <li><i class="fas fa-check"></i> HL7/FHIR integration security</li>
+                                <li><i class="fas fa-check"></i> Ransomware incident response</li>
+                            </ul>
+                            <a href="medical-device-risk-scoring.html" class="btn-primary">Explore Healthcare Security</a>
+                        </div>
+                        <div class="ind-visual">
+                            <div class="ind-stat-stack">
+                                <div class="ind-stat"><span class="ind-stat-num">89%</span><span>of NHS Trusts faced a cyber incident in 2024</span></div>
+                                <div class="ind-stat ind-stat-accent"><span class="ind-stat-num">£6.4M</span><span>average cost of a healthcare data breach</span></div>
+                                <div class="ind-stat"><span class="ind-stat-num">72h</span><span>average breach detection time, reduced to minutes with our SOC</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ind-panel" id="ind-finance">
+                    <div class="ind-panel-content">
+                        <div class="ind-text">
+                            <div class="ind-badge"><i class="fas fa-university"></i> Finance</div>
+                            <h3>Securing the Financial Ecosystem</h3>
+                            <p>PCI DSS v4.0, FCA regulations, and DORA compliance — we help banks, insurers, and fintechs stay ahead of both regulators and adversaries with continuous exposure management and red-team exercises.</p>
+                            <ul class="ind-list">
+                                <li><i class="fas fa-check"></i> PCI DSS v4.0 gap assessments</li>
+                                <li><i class="fas fa-check"></i> SWIFT CSP audit support</li>
+                                <li><i class="fas fa-check"></i> Insider threat detection</li>
+                                <li><i class="fas fa-check"></i> DORA resilience testing</li>
+                            </ul>
+                            <a href="compliance.html" class="btn-primary">Explore Finance Security</a>
+                        </div>
+                        <div class="ind-visual">
+                            <div class="ind-stat-stack">
+                                <div class="ind-stat"><span class="ind-stat-num">3x</span><span>more cyberattacks target financial services vs. other sectors</span></div>
+                                <div class="ind-stat ind-stat-accent"><span class="ind-stat-num">£5.9M</span><span>average cost of a financial sector breach</span></div>
+                                <div class="ind-stat"><span class="ind-stat-num">99.9%</span><span>uptime maintained for our monitored financial clients</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ind-panel" id="ind-government">
+                    <div class="ind-panel-content">
+                        <div class="ind-text">
+                            <div class="ind-badge"><i class="fas fa-landmark"></i> Government</div>
+                            <h3>Defending Critical National Infrastructure</h3>
+                            <p>We work with central and local government bodies to implement NCSC Cyber Essentials Plus, PSN compliance, and classified system security — protecting the infrastructure the public relies on.</p>
+                            <ul class="ind-list">
+                                <li><i class="fas fa-check"></i> Cyber Essentials Plus certification</li>
+                                <li><i class="fas fa-check"></i> PSN compliance assessments</li>
+                                <li><i class="fas fa-check"></i> NCSC CAF alignment</li>
+                                <li><i class="fas fa-check"></i> Secure supply chain reviews</li>
+                            </ul>
+                            <a href="penetration-testing.html" class="btn-primary">Explore Government Security</a>
+                        </div>
+                        <div class="ind-visual">
+                            <div class="ind-stat-stack">
+                                <div class="ind-stat"><span class="ind-stat-num">40%</span><span>of UK public sector bodies reported a breach in 2024</span></div>
+                                <div class="ind-stat ind-stat-accent"><span class="ind-stat-num">ISO 27001</span><span>compliant delivery methodology</span></div>
+                                <div class="ind-stat"><span class="ind-stat-num">SC Cleared</span><span>team members available for classified environments</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ind-panel" id="ind-energy">
+                    <div class="ind-panel-content">
+                        <div class="ind-text">
+                            <div class="ind-badge"><i class="fas fa-bolt"></i> Energy &amp; OT</div>
+                            <h3>IT/OT Convergence Security</h3>
+                            <p>Power grids, water treatment, and oil &amp; gas networks face unique cyber-physical risks. We provide passive OT/SCADA assessments and NERC CIP compliance without disrupting operational continuity.</p>
+                            <ul class="ind-list">
+                                <li><i class="fas fa-check"></i> Passive OT/SCADA assessments</li>
+                                <li><i class="fas fa-check"></i> NERC CIP compliance support</li>
+                                <li><i class="fas fa-check"></i> ICS/SCADA penetration testing</li>
+                                <li><i class="fas fa-check"></i> IT/OT network segmentation review</li>
+                            </ul>
+                            <a href="vulnerability-assessments.html" class="btn-primary">Explore OT Security</a>
+                        </div>
+                        <div class="ind-visual">
+                            <div class="ind-stat-stack">
+                                <div class="ind-stat"><span class="ind-stat-num">600%</span><span>increase in OT cyberattacks since 2020</span></div>
+                                <div class="ind-stat ind-stat-accent"><span class="ind-stat-num">Zero</span><span>operational disruption during our passive OT assessments</span></div>
+                                <div class="ind-stat"><span class="ind-stat-num">NIS2</span><span>directive readiness assessments available</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ind-panel" id="ind-retail">
+                    <div class="ind-panel-content">
+                        <div class="ind-text">
+                            <div class="ind-badge"><i class="fas fa-store"></i> Retail</div>
+                            <h3>Protecting the Customer Journey</h3>
+                            <p>From POS systems to e-commerce platforms and supply chains, we help retailers achieve PCI DSS compliance and protect customer payment data at every touchpoint.</p>
+                            <ul class="ind-list">
+                                <li><i class="fas fa-check"></i> PCI DSS scoping &amp; assessment</li>
+                                <li><i class="fas fa-check"></i> E-commerce web application testing</li>
+                                <li><i class="fas fa-check"></i> POS endpoint security review</li>
+                                <li><i class="fas fa-check"></i> Supply chain risk assessments</li>
+                            </ul>
+                            <a href="penetration-testing.html" class="btn-primary">Explore Retail Security</a>
+                        </div>
+                        <div class="ind-visual">
+                            <div class="ind-stat-stack">
+                                <div class="ind-stat"><span class="ind-stat-num">62%</span><span>of retail breaches involved payment card data</span></div>
+                                <div class="ind-stat ind-stat-accent"><span class="ind-stat-num">£3.2M</span><span>average cost of a retail cyber incident</span></div>
+                                <div class="ind-stat"><span class="ind-stat-num">48h</span><span>average time to full PCI DSS gap report delivery</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Why Beginess -->
     <section class="why-section" id="about">
         <div class="container">
@@ -265,6 +403,86 @@
         </div>
     </section>
 
+    <!-- Awards / Analyst Recognition -->
+    <section class="awards-section">
+        <div class="container">
+            <div class="section-header text-center reveal-up">
+                <h2>Industry Recognised. Client Trusted.</h2>
+                <p>Independently validated by leading industry bodies and analysts.</p>
+            </div>
+            <div class="awards-grid">
+                <div class="award-card reveal-up delay-1">
+                    <div class="award-icon"><i class="fas fa-trophy"></i></div>
+                    <div class="award-body">
+                        <div class="award-org">CREST</div>
+                        <div class="award-title">Accredited Penetration Testing Provider</div>
+                        <div class="award-year">2024</div>
+                    </div>
+                </div>
+                <div class="award-card reveal-up delay-2">
+                    <div class="award-icon"><i class="fas fa-medal"></i></div>
+                    <div class="award-body">
+                        <div class="award-org">Cyber Essentials</div>
+                        <div class="award-title">NCSC Certified Assessor</div>
+                        <div class="award-year">2024</div>
+                    </div>
+                </div>
+                <div class="award-card reveal-up delay-3">
+                    <div class="award-icon"><i class="fas fa-certificate"></i></div>
+                    <div class="award-body">
+                        <div class="award-org">ISO 27001</div>
+                        <div class="award-title">Certified Information Security Management</div>
+                        <div class="award-year">2024</div>
+                    </div>
+                </div>
+                <div class="award-card reveal-up delay-4">
+                    <div class="award-icon"><i class="fas fa-star"></i></div>
+                    <div class="award-body">
+                        <div class="award-org">Clutch</div>
+                        <div class="award-title">Top Cybersecurity Firm — UK</div>
+                        <div class="award-year">2024</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header text-center reveal-up">
+                <h2>What Our Clients Say</h2>
+                <p>Real results from organisations who trust Beginess with their most critical assets.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal-up delay-1">
+                    <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Beginess identified 14 critical vulnerabilities in our payment infrastructure that our previous vendor completely missed. Their reporting was clear, actionable, and led to a full remediation within 30 days."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"><i class="fas fa-user-circle"></i></div>
+                        <div><strong>James Harrington</strong><span>CISO, Midlands Finance Group</span></div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal-up delay-2">
+                    <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"After a ransomware incident, Beginess had us fully operational within 72 hours. Their incident response team was professional, calm under pressure, and recovered data we thought was permanently lost."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"><i class="fas fa-user-circle"></i></div>
+                        <div><strong>Dr. Aisha Patel</strong><span>IT Director, Regional NHS Foundation Trust</span></div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal-up delay-3">
+                    <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"The Medical Device Risk Scoring tool is unlike anything else on the market. We now have a live risk view of every device on our network — something that was simply impossible to achieve before."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"><i class="fas fa-user-circle"></i></div>
+                        <div><strong>Marcus Obi</strong><span>Head of Cyber, Private Healthcare Group</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Banner -->
     <section class="cta-banner" id="contact">
         <div class="container">
@@ -278,6 +496,9 @@
             </div>
         </div>
     </section>
+
+
+
 
     <!-- Footer -->
     <footer class="enterprise-footer">

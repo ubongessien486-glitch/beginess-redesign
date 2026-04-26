@@ -166,4 +166,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
 
+    // ── Industry Use-Case Tabs ────────────────────────────────────────────────
+    document.querySelectorAll('.ind-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.ind-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.ind-panel').forEach(p => p.classList.remove('active'));
+            tab.classList.add('active');
+            const panel = document.getElementById('ind-' + tab.dataset.ind);
+            if (panel) panel.classList.add('active');
+        });
+    });
+
 });
