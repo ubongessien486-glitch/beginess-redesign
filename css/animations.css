@@ -320,8 +320,9 @@ html {
   /* ---------- Full-screen slide-down overlay ---------- */
   .nav-list {
     display: none;
-    position: fixed;
-    top: 64px; left: 0; right: 0; bottom: 0;
+    position: absolute;
+    top: 64px; left: 0; right: 0;
+    height: calc(100vh - 64px);
     background: rgba(4, 13, 26, 0.97);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
@@ -414,8 +415,9 @@ html {
   /* ---------- Nav actions (bottom fixed bar) ---------- */
   .nav-actions {
     display: none;
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
+    position: absolute;
+    top: calc(100vh - 76px); left: 0; right: 0;
+    height: 76px;
     background: rgba(4, 13, 26, 0.98);
     border-top: 1px solid rgba(255,255,255,0.1);
     backdrop-filter: blur(24px);
