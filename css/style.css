@@ -136,10 +136,28 @@ img { max-width: 100%; display: block; }
 .has-mega:hover .nav-icon { transform: rotate(180deg); }
 
 .nav-emergency {
-    color: #ff9500; font-size: 0.85rem; font-weight: 600;
-    display: flex; align-items: center; gap: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid rgba(251, 191, 36, 0.35);
+    background: rgba(251, 191, 36, 0.06);
+    color: #fbbf24;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    transition: background 0.25s, border-color 0.25s, color 0.25s, box-shadow 0.25s;
+    text-decoration: none;
 }
-.nav-emergency:hover { color: #ffb340; }
+.nav-emergency i { font-size: 0.78rem; }
+.nav-emergency:hover {
+    background: rgba(251, 191, 36, 0.14);
+    border-color: rgba(251, 191, 36, 0.65);
+    color: #fde68a;
+    box-shadow: 0 0 14px rgba(251, 191, 36, 0.18);
+}
 
 .nav-actions { display: flex; align-items: center; gap: 12px; margin-left: auto; }
 .mobile-toggle { display: none; background: none; border: none; color: #fff; font-size: 1.4rem; cursor: pointer; padding: 8px; }
