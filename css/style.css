@@ -958,11 +958,11 @@ img { max-width: 100%; display: block; }
 }
 @keyframes heroLampEnter {
     from { opacity: 0; width: 20rem; }
-    to   { opacity: 0.25; width: 60rem; }   /* wide and soft sunlight ray */
+    to   { opacity: 0.9; width: 60rem; }   /* increased to 90% */
 }
 @keyframes heroGlowEnter {
     from { opacity: 0; }
-    to   { opacity: 0.15; }
+    to   { opacity: 0.9; }
 }
 @media (max-width: 768px) {
     .hero-lamp-beam { width: 20rem; height: 40vh; }
