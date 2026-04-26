@@ -404,38 +404,7 @@ img { max-width: 100%; display: block; }
     .solutions-grid { grid-template-columns: 1fr 1fr; }
 }
 
-@media (max-width: 768px) {
-    .desktop-only { display: none !important; }
-    .mobile-toggle { display: block; }
-    .nav-list, .nav-actions {
-        display: none; position: absolute; top: var(--nav-height); left: 0; right: 0;
-        background: var(--bg-secondary); border-bottom: 1px solid var(--border-color);
-        padding: 16px; flex-direction: column; align-items: flex-start; gap: 8px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    }
-    .nav-list.open, .nav-actions.open { display: flex; }
-    .navbar { position: sticky; }
-    .nav-container { position: relative; }
-    /* Stack hero on mobile */
-    .hero-split { grid-template-columns: 1fr; gap: 40px; }
-    .hero-screenshot { display: none; } /* Hide on mobile for clean layout */
-    .hero-content { max-width: 100%; }
-    /* Stats: 2x2 grid on mobile */
-    .stats-grid { grid-template-columns: 1fr 1fr; }
-    .stat-item { border-right: none; border-bottom: 1px solid var(--border-color); }
-    .stat-item:nth-child(odd) { border-right: 1px solid var(--border-color); }
-    .solutions-grid { grid-template-columns: 1fr; }
-    .featured-inner, .why-layout, .two-col, .service-hero-inner { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-    .cta-inner h2 { font-size: 2rem; }
-    .mega-menu { position: static; transform: none; min-width: unset; opacity: 1; visibility: visible; box-shadow: none; border-radius: 0; border: none; padding: 0; }
-}
-
-@media (max-width: 480px) {
-    .hero-title { font-size: 2.5rem; }
-    .hero-actions { flex-direction: column; }
-    .footer-grid { grid-template-columns: 1fr; }
-}
+/* Old mobile queries removed (now handled at bottom of file and in animations.css) */
 
 /* =========================================================
    21 DEV GEOMETRIC HERO (Vanilla HTML/CSS Port)
