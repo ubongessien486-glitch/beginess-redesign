@@ -888,6 +888,52 @@ img { max-width: 100%; display: block; }
 }
 
 /* =========================================================
+   MOBILE CYBERCORE OVERRIDES
+   ========================================================= */
+@media (max-width: 768px) {
+    /* Shrink the perspective grid so it doesn't bleed everywhere */
+    .cybercore-floor {
+        background-size: 35px 35px;
+        bottom: -30%;
+        transform: perspective(400px) rotateX(72deg);
+    }
+
+    /* Reduce beam height — full 150vh beams look like clutter */
+    .light-beam {
+        height: 80vh;
+        opacity: 0.65;
+    }
+
+    /* Fade out beams faster on small screens */
+    .light-stream-container {
+        mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 30%);
+        -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 30%);
+    }
+
+    /* Reduce glow spread on text */
+    .geo-title {
+        text-shadow: 0 0 12px rgba(0, 229, 255, 0.7), 0 0 24px rgba(0, 229, 255, 0.3);
+        font-size: clamp(2rem, 10vw, 3.5rem);
+        padding-inline: 1rem;
+    }
+
+    .geo-subtitle {
+        font-size: 0.95rem;
+        padding-inline: 1.25rem;
+    }
+
+    .max-w-3xl {
+        padding-top: 90px;
+        padding-inline: 1rem;
+    }
+
+    /* Subtle scene background on mobile */
+    .cybercore-scene {
+        background: radial-gradient(ellipse at center top, rgba(0, 229, 255, 0.04) 0%, transparent 65%);
+    }
+}
+
+/* =========================================================
    SECTION BREAK DIVIDERS
    ========================================================= */
 .section-break {

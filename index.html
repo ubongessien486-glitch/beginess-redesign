@@ -658,7 +658,10 @@
         document.addEventListener('DOMContentLoaded', () => {
             const container = document.getElementById('light-stream-container');
             if (container) {
-                const beamCount = 70;
+                // Use fewer beams on mobile to keep it clean
+                const isMobile = window.innerWidth <= 768;
+                const beamCount = isMobile ? 25 : 70;
+
                 for (let i = 0; i < beamCount; i++) {
                     const riseDur = Math.random() * 3 + 5; // 5-8s rise
                     const fadeDur = riseDur; // sync fade
