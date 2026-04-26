@@ -912,70 +912,61 @@ img { max-width: 100%; display: block; }
 
 
 /* =========================================================
-   HERO LAMP (reduced intensity vs section breaks)
+   HERO LAMP (Sunlight Ray Effect)
    ========================================================= */
 .hero-lamp {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    display: flex; align-items: center; justify-content: center;
+    display: flex; align-items: flex-start; justify-content: center;
     pointer-events: none; z-index: 0;
     overflow: hidden;
 }
 .hero-lamp-beam {
     position: absolute;
-    height: 10rem;
-    width: 26rem;
+    top: -5vh;
+    height: 60vh;
+    width: 40rem;
     opacity: 0;
-    animation: heroLampEnter 1s 0.4s ease-out forwards;
+    animation: heroLampEnter 1.5s 0.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 .hero-lamp-beam-left {
     right: 50%;
     background: conic-gradient(from 70deg at center top, var(--accent-teal), transparent, transparent);
+    mask-image: linear-gradient(to bottom, white 10%, transparent 90%);
+    -webkit-mask-image: linear-gradient(to bottom, white 10%, transparent 90%);
 }
 .hero-lamp-beam-right {
     left: 50%;
     background: conic-gradient(from 290deg at center top, transparent, transparent, var(--accent-teal));
+    mask-image: linear-gradient(to bottom, white 10%, transparent 90%);
+    -webkit-mask-image: linear-gradient(to bottom, white 10%, transparent 90%);
 }
 .hero-lamp-glow {
     position: absolute;
-    top: 50%;
+    top: -5vh;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 22rem; height: 6rem;
+    transform: translateX(-50%);
+    width: 50rem; height: 12rem;
     border-radius: 9999px;
     background: var(--accent-teal);
     opacity: 0;
-    filter: blur(40px);
-    animation: heroGlowEnter 1s 0.3s ease-out forwards;
+    filter: blur(80px);
+    animation: heroGlowEnter 1.5s 0.1s ease-out forwards;
 }
 .hero-lamp-line {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 2px; width: 26rem;
-    background: var(--accent-teal);
-    box-shadow: 0 0 16px var(--accent-teal);
-    border-radius: 9999px;
-    opacity: 0;
-    animation: heroLineEnter 1s 0.4s ease-out forwards;
+    display: none; /* removed hard line to look like natural sunlight ray */
 }
 @keyframes heroLampEnter {
-    from { opacity: 0; width: 12rem; }
-    to   { opacity: 0.55; width: 26rem; }   /* 55% — softer than original */
+    from { opacity: 0; width: 20rem; }
+    to   { opacity: 0.25; width: 60rem; }   /* wide and soft sunlight ray */
 }
 @keyframes heroGlowEnter {
     from { opacity: 0; }
-    to   { opacity: 0.28; }
-}
-@keyframes heroLineEnter {
-    from { opacity: 0; width: 10rem; }
-    to   { opacity: 0.75; width: 26rem; }
+    to   { opacity: 0.15; }
 }
 @media (max-width: 768px) {
-    .hero-lamp-beam { width: 14rem; height: 6rem; }
-    .hero-lamp-glow { width: 12rem; height: 4rem; }
-    .hero-lamp-line { width: 14rem; }
+    .hero-lamp-beam { width: 20rem; height: 40vh; }
+    .hero-lamp-glow { width: 20rem; height: 8rem; }
 }
 
 /* Hero title sits in center without offset */
