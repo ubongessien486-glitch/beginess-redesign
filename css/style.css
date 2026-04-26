@@ -743,6 +743,15 @@ img { max-width: 100%; display: block; }
 /* =========================================================
    21 DEV GEOMETRIC HERO (Vanilla HTML/CSS Port)
    ========================================================= */
+:root {
+  --cyber-bg: #000308;
+  --cyber-light: #00e5ff;
+  --cyber-highlight: #ffb86c;
+  --cyber-glow-1: rgba(0, 229, 255, 0.8);
+  --cyber-glow-2: rgba(0, 150, 255, 0.6);
+  --cyber-highlight-glow: rgba(255, 184, 108, 0.7);
+}
+
 .hero-geometric {
     position: relative;
     min-height: 100vh;
@@ -751,62 +760,76 @@ img { max-width: 100%; display: block; }
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-color: #030303;
+    background-color: var(--cyber-bg);
 }
-.hero-geo-bg {
+
+/* Cybercore Shapes & Container */
+.cybercore-scene {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom right, rgba(99, 102, 241, 0.05), transparent, rgba(244, 63, 94, 0.05));
-    filter: blur(64px);
+    overflow: hidden;
+    z-index: 0;
 }
-.hero-geo-blur { position: absolute; inset: 0; overflow: hidden; }
-
-/* Elegant Shapes */
-.shape-container { position: absolute; inset: 0; overflow: hidden; }
-.elegant-shape {
+.cybercore-floor {
     position: absolute;
-    opacity: 0;
-    animation: shapeEnter 2.4s cubic-bezier(0.23, 0.86, 0.39, 0.96) forwards;
+    bottom: -20%;
+    left: -20%;
+    right: -20%;
+    height: 50%;
+    background: radial-gradient(ellipse at center, rgba(0,229,255,0.1) 0%, transparent 70%);
+    transform: perspective(500px) rotateX(60deg);
+    animation: floorGlow 4s ease-in-out infinite;
 }
-.shape-inner {
-    position: relative;
-    border-radius: 9999px;
-    background: linear-gradient(to right, transparent, transparent);
-    backdrop-filter: blur(2px);
-    border: 2px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.1);
-    animation: floatShape 12s ease-in-out infinite;
+.cybercore-main-column {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle at center, rgba(0,229,255,0.08) 0%, transparent 60%);
+    animation: mainGlow 3s alternate infinite;
 }
-.shape-inner::after {
-    content: '';
-    position: absolute; inset: 0; border-radius: 9999px;
-    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2), transparent 70%);
+.light-stream-container {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+.light-beam {
+    position: absolute;
+    bottom: -10%;
+    background: var(--cyber-light);
+    animation-name: rise, fade;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+.light-beam.primary {
+    background: var(--cyber-light);
+    box-shadow: 0 0 8px var(--cyber-glow-1);
+}
+.light-beam.secondary {
+    background: var(--cyber-highlight);
+    box-shadow: 0 0 12px var(--cyber-highlight-glow);
 }
 
-@keyframes shapeEnter {
-    from { opacity: 0; transform: translateY(-150px) rotate(calc(var(--r) - 15deg)); }
-    to { opacity: 1; transform: translateY(0) rotate(var(--r)); }
+@keyframes rise {
+  0% { transform: translateY(100%); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(-120vh); opacity: 0; }
 }
-@keyframes floatShape {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(15px); }
+@keyframes fade {
+  0%, 100% { opacity: 0; }
+  5%, 85% { opacity: 0.8; }
 }
-
-/* Shape Positioning (Matching React component) */
-.shape-1 { left: -5%; top: 20%; --r: 12deg; animation-delay: 0.3s; }
-.shape-1 .shape-inner { width: 600px; height: 140px; background: linear-gradient(to right, rgba(99, 102, 241, 0.15), transparent); }
-
-.shape-2 { right: 0%; top: 75%; --r: -15deg; animation-delay: 0.5s; }
-.shape-2 .shape-inner { width: 500px; height: 120px; background: linear-gradient(to right, rgba(244, 63, 94, 0.15), transparent); }
-
-.shape-3 { left: 10%; bottom: 10%; --r: -8deg; animation-delay: 0.4s; }
-.shape-3 .shape-inner { width: 300px; height: 80px; background: linear-gradient(to right, rgba(139, 92, 246, 0.15), transparent); }
-
-.shape-4 { right: 20%; top: 15%; --r: 20deg; animation-delay: 0.6s; }
-.shape-4 .shape-inner { width: 200px; height: 60px; background: linear-gradient(to right, rgba(245, 158, 11, 0.15), transparent); }
-
-.shape-5 { left: 25%; top: 10%; --r: -25deg; animation-delay: 0.7s; }
-.shape-5 .shape-inner { width: 150px; height: 40px; background: linear-gradient(to right, rgba(6, 182, 212, 0.15), transparent); }
+@keyframes floorGlow {
+  0%, 100% { transform: perspective(500px) rotateX(60deg) scale(0.95); opacity: 0.7; }
+  50% { transform: perspective(500px) rotateX(60deg) scale(1.05); opacity: 1; }
+}
+@keyframes mainGlow {
+  from { opacity: 0.5; filter: blur(30px); }
+  to { opacity: 0.7; filter: blur(20px); }
+}
 
 /* Typography */
 .max-w-3xl { max-width: 48rem; margin-inline: auto; padding-top: 120px; }
@@ -817,8 +840,8 @@ img { max-width: 100%; display: block; }
     border: 1px solid rgba(255, 255, 255, 0.08);
     margin-bottom: 32px;
 }
-.badge-dot { font-size: 8px; color: rgba(244, 63, 94, 0.8); }
-.geo-badge span { font-size: 0.875rem; color: rgba(255, 255, 255, 0.6); letter-spacing: 0.05em; }
+.badge-dot { font-size: 8px; color: var(--cyber-light); }
+.geo-badge span { font-size: 0.875rem; color: rgba(255, 255, 255, 0.8); letter-spacing: 0.05em; }
 
 .geo-title {
     font-size: clamp(2rem, 7vw, 5.5rem);
@@ -830,12 +853,12 @@ img { max-width: 100%; display: block; }
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 .geo-title-2 {
-    background: linear-gradient(to right, #a5b4fc, rgba(255,255,255,0.9), #fda4af);
+    background: linear-gradient(to right, var(--cyber-light), #fff, var(--cyber-highlight));
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 .geo-subtitle {
     font-size: clamp(0.95rem, 3vw, 1.25rem);
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.6);
     margin-bottom: 36px; line-height: 1.625;
     font-weight: 300; letter-spacing: 0.025em;
     max-width: 36rem; margin-inline: auto;
@@ -843,16 +866,7 @@ img { max-width: 100%; display: block; }
 
 .hero-geo-fade {
     position: absolute; inset: 0; pointer-events: none;
-    background: linear-gradient(to top, #030303, transparent, rgba(3,3,3,0.8));
-}
-
-@media (max-width: 768px) {
-    /* Scale down shapes significantly so they don't overflow the viewport */
-    .shape-1 { left: -20%; top: 12%; }
-    .shape-1 .shape-inner { width: 280px; height: 70px; }
-    .shape-2 { right: -15%; top: 72%; }
-    .shape-2 .shape-inner { width: 240px; height: 60px; }
-    .shape-3, .shape-4, .shape-5 { display: none; }
+    background: linear-gradient(to top, var(--cyber-bg), transparent, rgba(0,3,8,0.8));
 }
 
 /* =========================================================

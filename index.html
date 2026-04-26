@@ -84,18 +84,11 @@
 
     <!-- Hero Geometric -->
     <section class="hero-geometric">
-        <div class="hero-geo-bg"></div>
-        <div class="hero-geo-blur"></div>
-
-
-
-        <!-- Elegant Shapes -->
-        <div class="shape-container overflow-hidden">
-            <div class="elegant-shape shape-1"><div class="shape-inner"></div></div>
-            <div class="elegant-shape shape-2"><div class="shape-inner"></div></div>
-            <div class="elegant-shape shape-3"><div class="shape-inner"></div></div>
-            <div class="elegant-shape shape-4"><div class="shape-inner"></div></div>
-            <div class="elegant-shape shape-5"><div class="shape-inner"></div></div>
+        <!-- Cybercore Background -->
+        <div class="cybercore-scene" id="cybercore-scene">
+            <div class="cybercore-floor"></div>
+            <div class="cybercore-main-column"></div>
+            <div class="light-stream-container" id="light-stream-container"></div>
         </div>
 
         <div class="container relative z-10 mx-auto px-4 text-center">
@@ -660,6 +653,32 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        // Cybercore Background Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('light-stream-container');
+            if (container) {
+                const beamCount = 70;
+                for (let i = 0; i < beamCount; i++) {
+                    const riseDur = Math.random() * 3 + 5; // 5-8s rise
+                    const fadeDur = riseDur; // sync fade
+                    const type = Math.random() < 0.15 ? 'secondary' : 'primary';
+                    const left = Math.random() * 100;
+                    const width = Math.floor(Math.random() * 2) + 1;
+                    const delay = Math.random() * 6;
+                    
+                    const beam = document.createElement('div');
+                    beam.className = `light-beam ${type}`;
+                    beam.style.left = `${left}%`;
+                    beam.style.width = `${width}px`;
+                    beam.style.animationDelay = `${delay}s`;
+                    beam.style.animationDuration = `${riseDur}s, ${fadeDur}s`;
+                    
+                    container.appendChild(beam);
+                }
+            }
+        });
+    </script>
 </body>
 </html>
 
