@@ -856,97 +856,59 @@ img { max-width: 100%; display: block; }
 }
 
 /* =========================================================
-   SECTION BREAK — CYAN LAMP EFFECT
+   SECTION BREAK DIVIDERS
    ========================================================= */
 .section-break {
     position: relative;
+    height: 2px;
     width: 100%;
-    height: 120px;          /* enough room for the beams + glow */
     overflow: visible;
-    pointer-events: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     z-index: 1;
 }
-
-/* The horizontal glowing line */
 .section-break::before {
     content: '';
     position: absolute;
-    top: 50%;
     left: 50%;
+    top: 50%;
     transform: translate(-50%, -50%);
-    width: 32rem;
-    height: 2px;
-    background: var(--accent-teal);
-    box-shadow: 0 0 18px var(--accent-teal), 0 0 40px rgba(6,182,212,0.4);
-    border-radius: 9999px;
-    animation: sbLineEnter 1s 0.2s ease-out forwards;
-    opacity: 0;
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(165, 180, 252, 0.25) 20%,
+        rgba(165, 180, 252, 0.7) 50%,
+        rgba(165, 180, 252, 0.25) 80%,
+        transparent
+    );
+    filter: blur(0.5px);
 }
-
-/* Central cyan blur orb */
 .section-break::after {
     content: '';
     position: absolute;
-    top: 50%;
     left: 50%;
+    top: 50%;
     transform: translate(-50%, -50%);
-    width: 26rem;
-    height: 80px;
-    border-radius: 9999px;
-    background: var(--accent-teal);
-    opacity: 0;
-    filter: blur(48px);
-    animation: sbGlowEnter 1s 0.15s ease-out forwards;
+    width: 30%;
+    height: 60px;
+    background: radial-gradient(ellipse at center, rgba(165, 180, 252, 0.12) 0%, transparent 70%);
     pointer-events: none;
 }
-
-/* Left beam */
-.section-break .sb-beam-left,
-.section-break .sb-beam-right {
-    position: absolute;
-    top: 50%;
-    height: 80px;
-    width: 28rem;
-    opacity: 0;
-    animation: sbBeamEnter 1s 0.2s ease-out forwards;
+/* Rose variant */
+.section-break--rose::before {
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(253, 164, 175, 0.2) 20%,
+        rgba(253, 164, 175, 0.6) 50%,
+        rgba(253, 164, 175, 0.2) 80%,
+        transparent
+    );
 }
-.section-break .sb-beam-left {
-    right: 50%;
-    transform-origin: right center;
-    background: conic-gradient(from 70deg at right center, var(--accent-teal), transparent 40%);
-}
-.section-break .sb-beam-right {
-    left: 50%;
-    transform-origin: left center;
-    background: conic-gradient(from 290deg at left center, var(--accent-teal), transparent 40%);
+.section-break--rose::after {
+    background: radial-gradient(ellipse at center, rgba(253, 164, 175, 0.1) 0%, transparent 70%);
 }
 
-@keyframes sbLineEnter {
-    from { opacity: 0; width: 12rem; }
-    to   { opacity: 0.9; width: 32rem; }
-}
-@keyframes sbGlowEnter {
-    from { opacity: 0; }
-    to   { opacity: 0.35; }
-}
-@keyframes sbBeamEnter {
-    from { opacity: 0; width: 12rem; }
-    to   { opacity: 0.85; width: 28rem; }
-}
-
-/* Mobile: shrink the beams */
-@media (max-width: 768px) {
-    .section-break { height: 80px; }
-    .section-break::before { width: 16rem; }
-    .section-break::after  { width: 12rem; height: 50px; }
-    .section-break .sb-beam-left,
-    .section-break .sb-beam-right { width: 14rem; height: 50px; }
-    @keyframes sbLineEnter  { from { width: 6rem;  opacity: 0; } to { width: 16rem; opacity: 0.9; } }
-    @keyframes sbBeamEnter  { from { width: 6rem;  opacity: 0; } to { width: 14rem; opacity: 0.8; } }
-}
 
 
 /* =========================================================
@@ -956,7 +918,7 @@ img { max-width: 100%; display: block; }
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
     display: flex; align-items: flex-start; justify-content: center;
-    pointer-events: none; z-index: 1;
+    pointer-events: none; z-index: 0;
     overflow: hidden;
     padding-top: 8%;
 }
