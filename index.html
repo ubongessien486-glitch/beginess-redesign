@@ -82,39 +82,41 @@
         </div>
     </nav>
 
-    <!-- Hero Tenable Split -->
-    <section class="hero-enterprise bg-dark">
-        <div class="hero-bg-wrapper">
-            <div class="hero-bg-overlay"></div>
+    <!-- Video Hero -->
+    <section class="hero-video" id="heroSection">
+        <!-- Video background -->
+        <div class="hero-video-bg">
+            <video class="hero-video-el" autoplay loop muted playsinline>
+                <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260210_031346_d87182fb-b0af-4273-84d1-c6fd17d6bf0f.mp4" type="video/mp4">
+            </video>
+            <div class="hero-video-overlay"></div>
         </div>
-        
-        <div class="container hero-split">
-            <div class="hero-content reveal-left">
-                <div class="hero-label">
-                    <i class="fas fa-shield-alt"></i> Exposure Management Platform
-                </div>
 
-                <h1 class="hero-title text-light">
-                    Cyber Security<br>Built for the Future
-                </h1>
+        <!-- Toggle button -->
+        <button class="hero-toggle-btn" id="heroToggle" aria-label="Toggle hero height">
+            <i class="fas fa-compress-alt" id="heroToggleIcon"></i>
+        </button>
 
-                <p class="hero-subtitle text-light">
-                    At Beginess, security isn't just what we do &mdash; it's who we are. Our cutting-edge cybersecurity solutions are designed to outsmart hackers and shield your business from evolving digital threats.
-                </p>
-                
-                <div class="hero-actions">
-                    <a href="#contact" class="btn-primary btn-lg hover-magnetic">Get a Demo</a>
-                    <a href="#services" class="btn-outline-light btn-lg hover-magnetic">Explore Services</a>
-                </div>
+        <!-- Centered content -->
+        <div class="hero-video-inner">
+            <!-- Glass pill -->
+            <div class="hero-glass-pill">
+                <span class="hero-pill-badge">New</span>
+                <span class="hero-pill-text">Exposure Management Platform &mdash; Now with AI Triage</span>
             </div>
-            
-            <div class="hero-screenshot reveal-right delay-2">
-                <div class="screenshot-wrap">
-                    <img src="assets/main-dashboard.png" alt="Beginess Dashboard Platform">
-                    <div class="screenshot-badge">
-                        <i class="fas fa-lock"></i> Continuous Protection
-                    </div>
-                </div>
+
+            <h1 class="hero-video-title">
+                Cyber Security<br>
+                <span>Built for the Future</span>
+            </h1>
+
+            <p class="hero-video-sub">
+                At Beginess, security isn&rsquo;t just what we do &mdash; it&rsquo;s who we are. Our cutting-edge cybersecurity solutions are designed to outsmart hackers and shield your business from evolving digital threats.
+            </p>
+
+            <div class="hero-video-actions">
+                <a href="#contact" class="btn-primary btn-lg">Get a Free Demo</a>
+                <a href="#services" class="btn-outline-light btn-lg">Explore Services</a>
             </div>
         </div>
     </section>
@@ -483,10 +485,8 @@
             <div class="team-grid">
 
                 <div class="team-card reveal-up delay-1">
-                    <div class="team-avatar-wrap">
-                        <div class="team-avatar ta-purple">
-                            <img src="assets/team/dk.png" alt="Daniel Kowalski" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
+                    <div class="team-photo-wrap">
+                        <img src="assets/team/dk.png" alt="Daniel Kowalski">
                         <div class="team-cert-badges">
                             <span class="cert-badge">OSCP</span>
                             <span class="cert-badge">CREST</span>
@@ -501,10 +501,8 @@
                 </div>
 
                 <div class="team-card reveal-up delay-2">
-                    <div class="team-avatar-wrap">
-                        <div class="team-avatar ta-teal">
-                            <img src="assets/team/sa.png" alt="Sophia Adeyemi" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
+                    <div class="team-photo-wrap">
+                        <img src="assets/team/sa.png" alt="Sophia Adeyemi">
                         <div class="team-cert-badges">
                             <span class="cert-badge">CISSP</span>
                             <span class="cert-badge">ISO 27001</span>
@@ -519,10 +517,8 @@
                 </div>
 
                 <div class="team-card reveal-up delay-3">
-                    <div class="team-avatar-wrap">
-                        <div class="team-avatar ta-rose">
-                            <img src="assets/team/rc.png" alt="Robert Chen" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
+                    <div class="team-photo-wrap">
+                        <img src="assets/team/rc.png" alt="Robert Chen">
                         <div class="team-cert-badges">
                             <span class="cert-badge">CISM</span>
                             <span class="cert-badge">CEH</span>
@@ -537,10 +533,8 @@
                 </div>
 
                 <div class="team-card reveal-up delay-4">
-                    <div class="team-avatar-wrap">
-                        <div class="team-avatar ta-amber">
-                            <img src="assets/team/nm.png" alt="Nadia Mensah" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
+                    <div class="team-photo-wrap">
+                        <img src="assets/team/nm.png" alt="Nadia Mensah">
                         <div class="team-cert-badges">
                             <span class="cert-badge">CREST</span>
                             <span class="cert-badge">OT/ICS</span>
@@ -656,29 +650,39 @@
 
     <script src="js/main.js"></script>
     <script>
-        // Cybercore Background Logic
+        // Hero height toggle
+        const heroSection = document.getElementById('heroSection');
+        const heroToggle = document.getElementById('heroToggle');
+        const heroToggleIcon = document.getElementById('heroToggleIcon');
+        let heroCompact = false;
+        if (heroToggle) {
+            heroToggle.addEventListener('click', () => {
+                heroCompact = !heroCompact;
+                heroSection.classList.toggle('compact', heroCompact);
+                heroToggleIcon.className = heroCompact ? 'fas fa-expand-alt' : 'fas fa-compress-alt';
+                heroToggle.setAttribute('aria-label', heroCompact ? 'Switch to full-bleed' : 'Switch to fit-to-content');
+            });
+        }
+
+        // Cybercore Background Logic (kept for other sections if needed)
         document.addEventListener('DOMContentLoaded', () => {
             const container = document.getElementById('light-stream-container');
             if (container) {
-                // Use fewer beams on mobile to keep it clean
                 const isMobile = window.innerWidth <= 768;
                 const beamCount = isMobile ? 25 : 70;
-
                 for (let i = 0; i < beamCount; i++) {
-                    const riseDur = Math.random() * 3 + 5; // 5-8s rise
-                    const fadeDur = riseDur; // sync fade
+                    const riseDur = Math.random() * 3 + 5;
+                    const fadeDur = riseDur;
                     const type = Math.random() < 0.15 ? 'secondary' : 'primary';
                     const left = Math.random() * 100;
                     const width = Math.floor(Math.random() * 2) + 1;
                     const delay = Math.random() * 6;
-                    
                     const beam = document.createElement('div');
                     beam.className = `light-beam ${type}`;
                     beam.style.left = `${left}%`;
                     beam.style.width = `${width}px`;
                     beam.style.animationDelay = `${delay}s`;
                     beam.style.animationDuration = `${riseDur}s, ${fadeDur}s`;
-                    
                     container.appendChild(beam);
                 }
             }
@@ -686,6 +690,7 @@
     </script>
 </body>
 </html>
+
 
 
 
