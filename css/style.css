@@ -30,7 +30,7 @@
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
     font-family: var(--font-main);
@@ -123,9 +123,8 @@ img { max-width: 100%; display: block; }
     text-decoration: none;
 }
 .nav-logo-img {
-    height: 42px; width: auto;
+    height: 56px; width: auto;
     object-fit: contain;
-    filter: brightness(0.1);
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .nav-logo:hover .nav-logo-img {
@@ -174,7 +173,7 @@ img { max-width: 100%; display: block; }
 }
 
 .nav-actions { display: flex; align-items: center; gap: 12px; margin-left: auto; }
-.mobile-toggle { display: none; background: none; border: none; color: #fff; font-size: 1.4rem; cursor: pointer; padding: 8px; }
+.mobile-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.6rem; cursor: pointer; padding: 8px; margin-left: auto; }
 
 /* ---- Mega Menu ---- */
 .has-mega { position: relative; }
@@ -270,7 +269,7 @@ img { max-width: 100%; display: block; }
     display: flex; flex-direction: column; align-items: center;
     text-align: center;
     padding: 0 24px;
-    padding-top: 80px;
+    padding-top: 20px;
     max-width: 900px;
     width: 100%;
 }
@@ -340,7 +339,7 @@ img { max-width: 100%; display: block; }
 /* Mobile hero overrides */
 @media (max-width: 768px) {
     .hero-video { min-height: 100svh; }
-    .hero-video-inner { padding-top: 100px; padding-bottom: 40px; }
+    .hero-video-inner { padding-top: 50px; padding-bottom: 40px; }
     .hero-video-title { font-size: clamp(2rem, 10vw, 2.8rem); }
     .hero-video-sub { font-size: 0.95rem; }
     .hero-video-actions { flex-direction: column; align-items: stretch; }
@@ -646,7 +645,7 @@ img { max-width: 100%; display: block; }
     align-items: flex-start;
     transition: border-color 0.3s, transform 0.3s;
 }
-.award-card:hover { border-color: rgba(165,180,252,0.4); transform: translateY(-4px); }
+.award-card:hover { border-color: rgba(0,204,153,0.4); transform: translateY(-4px); }
 .award-icon { font-size: 1.8rem; color: var(--accent-blue); flex-shrink: 0; }
 .award-org { font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent-teal); margin-bottom: 6px; }
 .award-title { font-size: 0.9rem; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; line-height: 1.4; }
@@ -665,7 +664,7 @@ img { max-width: 100%; display: block; }
     gap: 20px;
     transition: border-color 0.3s, transform 0.3s;
 }
-.testimonial-card:hover { border-color: rgba(165,180,252,0.35); transform: translateY(-4px); }
+.testimonial-card:hover { border-color: rgba(0,204,153,0.35); transform: translateY(-4px); }
 .testimonial-stars { color: #fbbf24; font-size: 0.9rem; display: flex; gap: 3px; }
 .testimonial-card > p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; flex: 1; font-style: italic; }
 .testimonial-author { display: flex; align-items: center; gap: 14px; border-top: 1px solid var(--border-color); padding-top: 20px; }
@@ -1050,9 +1049,9 @@ img { max-width: 100%; display: block; }
     background: linear-gradient(
         to right,
         transparent,
-        rgba(165, 180, 252, 0.25) 20%,
-        rgba(165, 180, 252, 0.7) 50%,
-        rgba(165, 180, 252, 0.25) 80%,
+        rgba(0, 204, 153, 0.25) 20%,
+        rgba(0, 204, 153, 0.7) 50%,
+        rgba(0, 204, 153, 0.25) 80%,
         transparent
     );
     filter: blur(0.5px);
@@ -1065,7 +1064,7 @@ img { max-width: 100%; display: block; }
     transform: translate(-50%, -50%);
     width: 30%;
     height: 60px;
-    background: radial-gradient(ellipse at center, rgba(165, 180, 252, 0.12) 0%, transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(0, 204, 153, 0.12) 0%, transparent 70%);
     pointer-events: none;
 }
 /* Rose variant */
@@ -1073,11 +1072,12 @@ img { max-width: 100%; display: block; }
     background: linear-gradient(
         to right,
         transparent,
-        rgba(253, 164, 175, 0.2) 20%,
-        rgba(253, 164, 175, 0.6) 50%,
-        rgba(253, 164, 175, 0.2) 80%,
+        rgba(0, 204, 153, 0.2) 20%,
+        rgba(0, 204, 153, 0.6) 50%,
+        rgba(0, 204, 153, 0.2) 80%,
         transparent
     );
+
 }
 .section-break--rose::after {
     background: radial-gradient(ellipse at center, rgba(253, 164, 175, 0.1) 0%, transparent 70%);
